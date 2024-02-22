@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+.seller-name {
+    padding: 20px;
+}
+
+.advertisements-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+.advertisement-box {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.advertisement-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.advertisement-description {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.form-container {
+    padding: 20px;
+}
+
+.form-field {
+    background-color: transparent;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+
