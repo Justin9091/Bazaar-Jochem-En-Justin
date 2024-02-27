@@ -37,6 +37,11 @@ Route::get('/advertisment/{id}', [AdvertismentController::class, 'show'])->name(
 
 Route::get('/seller/{userId}', [SellerController::class, 'show'])->name('sellerprofile');
 Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add_review');
+Route::get('/seller/{userId}/addadvertisement', [SellerController::class, 'showaddadvertisementform'])->name('sellers.addadvertisement');
+Route::post('/seller/{userId}/addadvertisement', [SellerController::class, 'createadvertisement'])->name('sellers.createadvertisement');
+
+
+
 
 
 Route::middleware(['auth'])->group(function () {

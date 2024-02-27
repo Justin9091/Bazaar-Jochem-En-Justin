@@ -10,7 +10,9 @@ class Advertisment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title'];
+    protected $fillable = [
+        'title', 'description', 'type', 'expires_at', 'user_id',
+    ];
     public function bids()
     {
         return $this->hasMany(Bid::class)->orderBy('bid', 'desc');

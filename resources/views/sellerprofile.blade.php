@@ -3,10 +3,13 @@
 @section("main-content")
     <div class="container">
         <h1 class="seller-name">{{ $user->name }}</h1>
-        <h2>Advertisements</h2>
+        <h2>Aanbiedingen</h2>
+
+        <x-addadvertisment userid="{{$user->id}}"></x-addadvertisment>
+
         <div class="advertisements-grid">
             @if ($user->advertisements->isEmpty())
-                <p>No advertisements found for this user.</p>
+                <p>Geen aanbiedingen voor deze verkoper</p>
             @else
                 @foreach ($user->advertisements as $advertisement)
                     <div class="advertisement-box">
@@ -23,7 +26,7 @@
         <h2>Reviews</h2>
         <div class="reviews-list">
             @if ($user->reviews->isEmpty())
-                <p>No reviews found for this user.</p>
+                <p>Geen reviews voor deze verkoper</p>
             @else
                     <ul>
                         @foreach ($user->reviews as $review)
@@ -35,6 +38,7 @@
 
         <x-add-review userid="{{$user->id}}" reviewer="random"></x-add-review>
     </div>
+
 @endsection
 
 
