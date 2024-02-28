@@ -17,7 +17,11 @@ class AccountController extends Controller
             $favorite->ad = $favorite->advertisment;
         }
 
-        $url = ShortUrl::all()->where('seller_id', Auth::getUser()->id)->first()->short_url;
+        $url = ShortUrl::all()->where('seller_id', Auth::getUser()->id)->first();
+
+        if($url) {
+            $url = $url->short_url;
+        }
 
         return view('account')
             ->with('favoriteAds', $favorites)
