@@ -7,6 +7,15 @@
 
     @if(Auth::user()->hasRole("business"))
         <button class="{{$button}}">Exporteer registratie</button>
+
+        <h2 class="text-2xl">Look and feel</h2>
+
+        <form enctype="multipart/form-data" action="/image/logos/{{Auth::getUser()->id}}/" method="POST">
+            @csrf
+            <input type="file" name="image" required>
+
+            <x-submit-button value="Upload"/>
+        </form>
     @endif
 
 

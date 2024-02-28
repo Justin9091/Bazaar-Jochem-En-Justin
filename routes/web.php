@@ -5,6 +5,7 @@ use App\Http\Controllers\AdvertismentController;
 use App\Http\Controllers\BidController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\RegisterController;
@@ -38,6 +39,7 @@ Route::get('/advertisment/{id}', [AdvertismentController::class, 'show'])->name(
 Route::get('/seller/{userId}', [SellerController::class, 'show'])->name('sellerprofile');
 Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add_review');
 
+Route::post('/image/{folder}/{name}', [ImageController::class, 'store'])->name('image');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/properties', [PropertiesController::class, 'index'])->name('properties');
