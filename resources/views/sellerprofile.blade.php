@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section("main-content")
-    <img src="{{Storage::url("public/logos/".$user->id.".jpg")}}" alt="Logo">
+    <img src="{{$user->customLogo}}" alt="Logo">
 
     <div class="container">
         <h1 class="seller-name">{{ $user->name }}</h1>

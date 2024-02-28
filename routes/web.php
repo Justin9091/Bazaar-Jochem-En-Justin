@@ -39,7 +39,7 @@ Route::get('/advertisment/{id}', [AdvertismentController::class, 'show'])->name(
 Route::get('/seller/{userId}', [SellerController::class, 'show'])->name('sellerprofile');
 Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add_review');
 
-Route::post('/image/{folder}/{name}', [ImageController::class, 'store'])->name('image');
+Route::post('/image/{folder?}/{name?}', [ImageController::class, 'store'])->name('image');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/properties', [PropertiesController::class, 'index'])->name('properties');

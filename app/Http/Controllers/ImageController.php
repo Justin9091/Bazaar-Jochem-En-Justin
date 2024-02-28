@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
-    public function store(Request $req, $folder, $name)
+    public function store(ImageRequest $req, $folder = "", $name = "image")
     {
         if(!$req->hasFile('image')) return back();
 
