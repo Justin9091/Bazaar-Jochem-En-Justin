@@ -7,6 +7,19 @@
 
         <x-addadvertisment userid="{{$user->id}}"></x-addadvertisment>
 
+        <a href="{{ route('sellers.createcsv', ['userId' => $user->id]) }}" class="btn btn-primary">Create CSV</a>
+
+        <form action="{{ route('sellers.importcsv', ['userId' => $user->id]) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <label for="csv_file">Select CSV File to Import:</label>
+                <input type="file" class="form-control-file" id="csv_file" name="csv_file">
+            </div>
+            <button type="submit" class="btn btn-primary">Import CSV</button>
+        </form>
+
+
+
         <div class="advertisements-grid">
             @if ($user->advertisements->isEmpty())
                 <p>Geen aanbiedingen voor deze verkoper</p>

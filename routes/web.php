@@ -12,6 +12,7 @@ use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\CSVController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,9 +41,8 @@ Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add_re
 Route::get('/seller/{userId}/addadvertisement', [SellerController::class, 'showaddadvertisementform'])->name('sellers.addadvertisement');
 Route::post('/seller/{userId}/addadvertisement', [SellerController::class, 'createadvertisement'])->name('sellers.createadvertisement');
 
-
-
-
+Route::get('/seller/{userId}/createcsv', [CSVController::class, 'createcsv'])->name('sellers.createcsv');
+Route::post('/seller/{userId}/importcsv', [CSVController::class, 'importcsv'])->name('sellers.importcsv');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/properties', [PropertiesController::class, 'index'])->name('properties');
