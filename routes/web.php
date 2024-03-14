@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CSVController;
+use \App\Http\Controllers\RentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,8 @@ Route::get('/seller/{userId}/createqr', [SellerController::class, 'createqr'])->
 
 Route::get('/seller/{userId}/createcsv', [CSVController::class, 'createcsv'])->name('sellers.createcsv');
 Route::post('/seller/{userId}/importcsv', [CSVController::class, 'importcsv'])->name('sellers.importcsv');
+
+Route::get('/seller/{userid}/{date}', [RentController::class, 'createagenda'])->name('sellers.createagenda');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/properties', [PropertiesController::class, 'index'])->name('properties');

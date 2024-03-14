@@ -3,7 +3,10 @@
 @section("main-content")
     <div class="container">
         <h1 class="seller-name text-3xl font-bold mb-4">{{ $user->name }}</h1>
-        @if(Auth::check() && Auth::id() == $userid)
+
+        <a href="{{ route('sellers.createagenda', ['userid' => $user->id, 'date' => now()->toDateString()]) }}" class="btn btn-primary">Ga naar agenda</a>
+
+    @if(Auth::check() && Auth::id() == $userid)
             <div class="p-2 flex justify-between items-center mb-2">
                 <div>
                     <h2 class="text-xl font-semibold">Aanbiedingen</h2>
