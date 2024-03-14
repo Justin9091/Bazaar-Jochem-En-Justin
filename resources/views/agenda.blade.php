@@ -7,15 +7,10 @@
         <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
-        <style>
-            [x-cloak] {
-                display: none;
-            }
-        </style>
-
-        <div class="antialiased sans-serif bg-gray-700 h-screen">
+        <div class="antialiased sans-serif bg-gray-700 h-max">
+            <h1 class="text-xl font-semibold text-center">Agenda</h1>
             <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak>
-                <div class="container mx-auto px-4 py-2 md:py-24">
+                <div class="container mx-auto px-4 py-2 ">
                     <div class="bg-white rounded-lg shadow overflow-hidden">
 
                         <div class="flex items-center justify-between py-2 px-6">
