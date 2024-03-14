@@ -36,7 +36,11 @@ class SellerController extends Controller
         $advertisment = new Advertisment();
         $advertisment->title = $validatedData['title'];
         $advertisment->description = $validatedData['description'];
-        $advertisment->type = $validatedData['type'];
+        if($validatedData['type'] == 'Huur'){
+            $advertisment->type = 'rent';
+        } else {
+            $advertisment->type = 'sell';
+        }
         $advertisment->expires_at = $validatedData['expiration'];
         $advertisment->user_id = $userId;
         $advertisment->save();

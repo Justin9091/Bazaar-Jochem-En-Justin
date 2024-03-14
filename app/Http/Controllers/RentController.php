@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Advertisment\Advertisment;
 use App\Models\Advertisment\RentAdvertisment;
+use Illuminate\Http\Request;
 
 class RentController
 {
@@ -24,5 +25,15 @@ class RentController
         }
         return view('agenda')->with('rentingslist', $rentingslist);
     }
+    public function rentitem(Request $request, $advertisementid){
+        $fromDate = $request->input('fromDate');
+        $toDate = $request->input('toDate');
 
+        $rentadvertisement = RentAdvertisment::create([
+            'advertisment_id' => $advertisementid,
+            'from_date' => $fromDate,
+            'to_date' => $toDate
+        ]);
+        return back();
+    }
 }

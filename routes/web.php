@@ -37,6 +37,8 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/advertisment/{id}', [AdvertismentController::class, 'show'])->name('advertisment');
+Route::get('/advertisment/{id}/rentitem', [RentController::class, 'rentitem'])->name('rentitem');
+
 
 Route::get('/seller/{userId}', [SellerController::class, 'show'])->name('sellerprofile');
 Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add_review');
