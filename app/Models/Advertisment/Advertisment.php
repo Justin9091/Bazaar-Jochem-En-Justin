@@ -25,4 +25,8 @@ class Advertisment extends Model
     {
         return $this->hasMany(Review::class);
     }
+    public function rentAdvertisment()
+    {
+        return $this->hasOne(RentAdvertisment::class);
+    }
 }
