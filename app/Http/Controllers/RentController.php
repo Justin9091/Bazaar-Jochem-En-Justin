@@ -17,8 +17,8 @@ class RentController
                 $rents = RentAdvertisment::where('advertisment_id', $advertisement->id)->get();
                 foreach($rents as $rent){
                     $rentAdvertisment = Advertisment::where('id', $rent->advertisment_id)->first();
-                    $rentingslist['verhuur: ' . $rentAdvertisment->title] = $rent->from_date;
-                    $rentingslist['teruggave: '. $rentAdvertisment->title] = $rent->to_date;
+                    $rentingslist['Verhuur: ' . $rentAdvertisment->title] = $rent->from_date;
+                    $rentingslist['Teruggave: '. $rentAdvertisment->title] = $rent->to_date;
                 }
             }
         }
