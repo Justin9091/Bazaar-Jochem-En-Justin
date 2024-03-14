@@ -8,7 +8,6 @@ class ReviewController extends Controller
 {
     public function addReview(Request $request)
     {
-
         // Validate the request data
         $validatedData = $request->validate([
             'user_id' => 'required|exists:users,id',

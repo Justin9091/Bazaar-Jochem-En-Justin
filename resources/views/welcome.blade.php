@@ -5,3 +5,4 @@
 @section("main-content")
     <x-list-component :advertisments="$advertisments"/>
 @endsection
+

@@ -1,7 +1,7 @@
-<article>
+<article class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md mb-4">
     <div class="flex items-center mb-4">
         <div class="font-medium dark:text-white">
-            <p> {{ $reviewer }}<time class="block text-sm text-gray-500 dark:text-gray-400">Geplaats op {{ $date }}</time></p>
+            <p>{{ $reviewer }}<time class="block text-sm text-gray-500 dark:text-gray-400">Geplaatst op {{ $date }}</time></p>
         </div>
     </div>
     <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
@@ -19,5 +19,5 @@
     </div>
     <h3 class="ms-2 text-sm font-semibold text-gray-900 dark:text-white">{{ $title }}</h3>
     <p class="mb-2 text-gray-500 dark:text-gray-400">{{ $description }}</p>
-
 </article>
+

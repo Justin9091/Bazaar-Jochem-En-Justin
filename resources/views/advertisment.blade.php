@@ -11,4 +11,6 @@
             <p>{{$ad["description"]}}</p>
         </div>
     </div>
+
+    <x-backbutton></x-backbutton>
 @endsection
