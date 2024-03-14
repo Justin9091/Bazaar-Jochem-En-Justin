@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRentAdvertisementsTable extends Migration
+class CreateRentTable extends Migration
 {
     public function up()
     {
@@ -13,6 +13,7 @@ class CreateRentAdvertisementsTable extends Migration
             $table->foreignId('advertisment_id')->constrained()->onDelete('cascade');
             $table->date('from_date');
             $table->date('to_date');
+            $table->timestamps();
         });
     }
 
@@ -21,4 +22,3 @@ class CreateRentAdvertisementsTable extends Migration
         Schema::dropIfExists('rent');
     }
 }
-

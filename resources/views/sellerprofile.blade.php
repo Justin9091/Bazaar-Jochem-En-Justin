@@ -10,8 +10,7 @@
                     <x-addadvertisment userid="{{$user->id}}"></x-addadvertisment>
                 </div>
                 <div class="flex space-x-2">
-                    <x-csv.exportcsv userid="{{$user->id}}"></x-csv.exportcsv>
-                    <x-csv.importcsv userid="{{$user->id}}"></x-csv.importcsv>
+                    <x-exportcsv :userid="$user->id" />
                 </div>
             </div>
         @endif
