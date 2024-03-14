@@ -1,1 +1,1 @@
-<a href="{{ route('sellers.createcsv', ['userId' => $userid]) }}" class="btn btn-primary">Create CSV</a>
+<a href="{{ route('sellers.createcsv', ['userId' => $userid]) }}" class="btn btn-primary inline-block px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300 ease-in-out">Create CSV</a>

@@ -15,12 +15,10 @@
                 <p>Geen aanbiedingen voor deze verkoper</p>
             @else
                 @foreach ($user->advertisements as $advertisement)
-                    <div class="advertisement-box">
-                        <a href="/advertisment/{{$advertisement["id"]}}">
-                            <div>
-                                <h3>{{$advertisement["title"]}}</h3>
-                                <p>{{$advertisement["description"]}}</p>
-                            </div>
+                    <div class="advertisement-box bg-gray-600 border border-gray-800 shadow-md rounded-lg p-4">
+                        <a href="/advertisment/{{$advertisement["id"]}}" class="block">
+                            <h3 class="text-xl font-semibold text-white">{{$advertisement["title"]}}</h3>
+                            <p class="mt-2 text-white">{{$advertisement["description"]}}</p>
                         </a>
                     </div>
                 @endforeach
@@ -38,16 +36,9 @@
                     </ul>
             @endif
         </div>
-
         <x-add-review userid="{{$user->id}}" reviewer="random"></x-add-review>
-
-        <div>
-            <h2>Scan QR Code</h2>
-            <img src="{{ route('sellers.createqr', ['userId' => $user->id]) }}" alt="QR Code">
-        </div>
-
     </div>
-
+    <x-backbutton></x-backbutton>
 @endsection
 
 

@@ -40,6 +40,8 @@ Route::get('/seller/{userId}', [SellerController::class, 'show'])->name('sellerp
 Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add_review');
 Route::get('/seller/{userId}/addadvertisement', [SellerController::class, 'showaddadvertisementform'])->name('sellers.addadvertisement');
 Route::post('/seller/{userId}/addadvertisement', [SellerController::class, 'createadvertisement'])->name('sellers.createadvertisement');
+Route::get('/seller/{userId}/createqr', [SellerController::class, 'createqr'])->name('sellers.createqr');
+
 
 Route::get('/seller/{userId}/createcsv', [CSVController::class, 'createcsv'])->name('sellers.createcsv');
 Route::post('/seller/{userId}/importcsv', [CSVController::class, 'importcsv'])->name('sellers.importcsv');

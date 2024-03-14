@@ -44,6 +44,10 @@ class SellerController extends Controller
         // Redirect back or to any other route as needed
         return redirect()->route('sellerprofile', ['userId' => $userId])->with('success', 'Advertisement created successfully.');
     }
+
+    public function createqr(){
+
+    }
 }
 
 

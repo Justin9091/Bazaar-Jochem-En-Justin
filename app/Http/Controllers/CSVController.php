@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Response;
 
 class CSVController
 {
-
     public function createcsv($userid){
         $advertisements = advertisment::where('user_id', $userid)->get();
         $data = array(
