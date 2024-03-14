@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ShortUrlController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ReviewController;
@@ -38,7 +39,6 @@ Route::get('/advertisment/{id}', [AdvertismentController::class, 'show'])->name(
 Route::get('/seller/{userId}', [SellerController::class, 'show'])->name('sellerprofile');
 Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add_review');
 
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/properties', [PropertiesController::class, 'index'])->name('properties');
     Route::post('/properties/{property}', [PropertiesController::class, 'update']);
@@ -50,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/favorite/{advertisment}', [FavoriteController::class, 'favorite'])->name('favorite');
 
+    Route::post('/shorturl/edit', [ShortUrlController::class, 'edit']);
 });
 
 // ToDo remove later
@@ -63,3 +64,5 @@ Route::get('language/{locale}', function ($locale) {
 Route::post('/search', [SearchController::class, 'search'])->name('search');
 Route::post('/clear-search', [SearchController::class, 'clearSearch'])->name('clear-search-term');
 
+// Deze moet onderaan staan anders denkt Laravel dat elke route deze is
+Route::get('/{url}', [ShortUrlController::class, 'url']);
