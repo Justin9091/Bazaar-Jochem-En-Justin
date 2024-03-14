@@ -12,7 +12,6 @@
             <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak>
                 <div class="container mx-auto px-4 py-2 ">
                     <div class="bg-white rounded-lg shadow overflow-hidden">
-
                         <div class="flex items-center justify-between py-2 px-6">
                             <div>
                                 <span x-text="MONTH_NAMES[month]" class="text-lg font-bold text-gray-800"></span>
@@ -32,7 +31,7 @@
                                 <div class="border-r inline-flex h-6"></div>
                                 <button
                                     type="button"
-                                    class="leading-none rounded-lg transition ease-in-out duration-100 inline-flex items-center cursor-pointer hover:bg-gray-200 p-1"
+                                    class="leading-none rounded-lg transition ease-in-out duration-100 inline-flex items-center hover:bg-gray-200  cursor-pointer p-1"
                                     :class="{'cursor-not-allowed opacity-25': month == 11 }"
                                     :disabled="month == 11 ? true : false"
                                     @click="month++; getNoOfDays()">
@@ -65,8 +64,8 @@
                                     <div style="width: 14.28%; height: 120px" class="px-4 pt-2 border-r border-b relative">
                                         <div
                                             x-text="date"
-                                            class="inline-flex w-6 h-6 items-center justify-center cursor-pointer text-center leading-none rounded-full transition ease-in-out duration-100"
-                                            :class="{'bg-blue-500 text-white': isToday(date) == true, 'text-gray-700 hover:bg-blue-200': isToday(date) == false }"
+                                            class="inline-flex w-6 h-6 items-center justify-center text-center leading-none rounded-full transition ease-in-out duration-100"
+                                            :class="{'bg-blue-500 text-white': isToday(date) == true, 'text-gray-700': isToday(date) == false }"
                                         ></div>
                                         <div style="height: 80px;" class="overflow-y-auto mt-1">
                                             <template x-for="event in events.filter(e => new Date(e.event_date).toDateString() ===  new Date(year, month, date).toDateString() )">
