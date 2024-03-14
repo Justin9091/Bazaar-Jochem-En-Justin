@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ShortUrlController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ReviewController;
@@ -42,7 +43,6 @@ Route::get('/seller/{userId}/addadvertisement', [SellerController::class, 'showa
 Route::post('/seller/{userId}/addadvertisement', [SellerController::class, 'createadvertisement'])->name('sellers.createadvertisement');
 Route::get('/seller/{userId}/createqr', [SellerController::class, 'createqr'])->name('sellers.createqr');
 
-
 Route::get('/seller/{userId}/createcsv', [CSVController::class, 'createcsv'])->name('sellers.createcsv');
 Route::post('/seller/{userId}/importcsv', [CSVController::class, 'importcsv'])->name('sellers.importcsv');
 
@@ -57,6 +57,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/favorite/{advertisment}', [FavoriteController::class, 'favorite'])->name('favorite');
 
+    Route::post('/shorturl/edit', [ShortUrlController::class, 'edit']);
 });
 
 // ToDo remove later
@@ -70,3 +71,5 @@ Route::get('language/{locale}', function ($locale) {
 Route::post('/search', [SearchController::class, 'search'])->name('search');
 Route::post('/clear-search', [SearchController::class, 'clearSearch'])->name('clear-search-term');
 
+// Deze moet onderaan staan anders denkt Laravel dat elke route deze is
+Route::get('/{url}', [ShortUrlController::class, 'url']);
