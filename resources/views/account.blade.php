@@ -19,7 +19,14 @@
     @endif
 
 
+    <div class="">
+        <h2 class="text-2xl">QR code</h2>
+        <div class="flex">
+            <x-qr-code :url="env('APP_URL') . '/seller/' . Auth::getUser()->id "/>
+        </div>
+    </div>
+
     <h1 class="text-3xl">Favorites</h1>
 
-    <x-list-component :advertisments="$favoriteAds" />
+    <x-list-component :advertisments="$favoriteAds"/>
 @endsection

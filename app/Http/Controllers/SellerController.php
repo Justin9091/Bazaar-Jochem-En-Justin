@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class SellerController extends Controller
 {
@@ -26,7 +27,6 @@ class SellerController extends Controller
             }
         }
 
-        // Pass the user data to the view
         return view('sellerprofile', compact('user'));
     }
 }
