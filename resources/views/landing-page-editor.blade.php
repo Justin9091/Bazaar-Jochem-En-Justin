@@ -3,58 +3,79 @@
 @section('main-content')
     <div class="container">
 
-        @foreach($components as $component)
+        <div class="flex flex-col gap-2">
+            @foreach($components as $component)
 
-            <a href="/landing/editor/remove/{{$component->id}}">Eruit kankeren</a>
-            <a href="/landing/editor/up/{{$component->id}}">Omhoog kankeren</a>
-            <a href="/landing/editor/down/{{$component->id}}">Omlaag kankeren</a>
+                <div class="bg-gray-800 rounded-lg p-3 flex justify-between items-center">
 
-            @if($component->type == 'text-component')
-                <x-text-component :component="$component"/>
-            @elseif($component->type == 'image-component')
-                <x-image-component :component="$component" />
-            @endif
-        @endforeach
+                    <div class="flex flex-col gap-2">
+                        <a class="p-1 bg-blue-500 text-white text-bold text-center rounded-lg"
+                           href="/landing/editor/up/{{$component->id}}">Move up</a>
+                        <a class="p-1 bg-red-500 text-white text-bold text-center rounded-lg"
+                           href="/landing/editor/remove/{{$component->id}}">Delete</a>
+                        <a class="p-1 bg-blue-500 text-white text-bold text-center rounded-lg"
+                           href="/landing/editor/down/{{$component->id}}">Move down</a>
+                    </div>
 
-        <form enctype="multipart/form-data" action="/landing/editor/add" method="POST">
-            @csrf
+                    <div class="">
+                        @if($component->type == 'text-component')
+                            <x-text-component :component="$component"/>
+                        @elseif($component->type == 'image-component')
+                            <x-image-component :component="$component"/>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
 
-            <select name="type" onchange="show()" id="select" class="text-slate-950">
-                <option value="none" selected>Select type</option>
-                @foreach(\App\enum\ComponentType::cases() as $type)
-                    <option class="text-slate-950" value="{{$type}}">{{$type}}</option>
-                @endforeach
-            </select>
+            <div class="bg-gray-800 rounded-lg p-3">
 
-            <div id="text-component" class="hidden">
-                <p>Text:</p>
-                <input name="text" type="text">
+                <h1 class="text-3xl text-center font-bold p-2">Add component</h1>
 
-                <p>Font size:</p>
-                <input min="12" max="72" name="size" type="number">
+                <form enctype="multipart/form-data" action="/landing/editor/add" method="POST">
+                    @csrf
+
+                    <select name="type" onchange="show()" id="select" class="text-slate-950 w-full p-2 rounded-lg">
+                        <option value="none" selected>Select type</option>
+                        @foreach(\App\enum\ComponentType::cases() as $type)
+                            <option class="text-slate-950" value="{{$type}}">{{$type}}</option>
+                        @endforeach
+                    </select>
+
+                    <div id="text-component" class="hidden">
+                        <div class="">
+                            <p>Text:</p>
+                            <input name="text" type="text" class="text-slate-950 w-full p-2 rounded-lg">
+                        </div>
+
+                        <div class="">
+                            <p>Font size:</p>
+                            <input min="12" max="72" name="size" type="number"
+                                   class="text-slate-950 w-full p-2 rounded-lg">
+                        </div>
+                    </div>
+
+                    <div id="image-component" class="hidden">
+                        <p>PLAATJE</p>
+                        <input name="image" type="file" class="text-slate-950 w-full p-2 rounded-lg bg-white"/>
+
+                        <p>Onderschrift</p>
+                        <input type="text" name="description" class="w-full p-2 rounded-lg">
+                    </div>
+
+                    @error('type')
+                    <p class="text-red-500">{{ $message }}</p>
+                    @enderror
+
+                    @error('image')
+                    <p class="text-red-500">{{ $message }}</p>
+                    @enderror
+
+                    <div class="flex justify-center">
+                        <x-submit-button/>
+                    </div>
+                </form>
             </div>
-
-            <div id="image-component" class="hidden">
-                <p>PLAATJE</p>
-                <input name="image" type="file" />
-                @error('image')
-                <p class="text-red-500">{{ $message }}</p>
-                @enderror
-
-                <p>Onderschrift</p>
-                <input type="text" name="description" >
-            </div>
-
-            @error('type')
-            <p class="text-red-500">{{ $message }}</p>
-            @enderror
-
-            @error('image')
-            <p class="text-red-500">{{ $message }}</p>
-            @enderror
-
-            <input type="submit">
-        </form>
+        </div>
     </div>
 
     <script>
@@ -71,7 +92,7 @@
 
             let element = document.getElementById(id);
 
-            if(!element) return;
+            if (!element) return;
 
             element.classList.remove('hidden');
         }
