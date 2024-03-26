@@ -8,7 +8,7 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
         <div class="antialiased sans-serif bg-gray-700 h-max">
-            <h1 class="text-xl font-semibold text-center">Agenda</h1>
+            <h1 class="text-xl font-semibold text-center">{{ __('agenda.title') }}</h1>
             <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak>
                 <div class="container mx-auto px-4 py-2 ">
                     <div class="bg-white rounded-lg shadow overflow-hidden">
@@ -48,7 +48,7 @@
                                     <div style="width: 14.26%" class="px-2 py-2">
                                         <div
                                             x-text="day"
-                                            class="text-gray-600 text-sm uppercase tracking-wide font-bold text-center"></div>
+                                            class="text-gray-600 text-sm uppercase tracking-wide font-bold text-center">{{ __('agenda.DAY_NAMES.' + day) }}</div>
                                     </div>
                                 </template>
                             </div>
@@ -68,10 +68,10 @@
                                             :class="{'bg-blue-500 text-white': isToday(date) == true, 'text-gray-700': isToday(date) == false }"
                                         ></div>
                                         <div style="height: 80px;" class="overflow-y-auto mt-1">
-                                            <template x-for="event in events.filter(e => new Date(e.event_date).toDateString() ===  new Date(year, month, date).toDateString() )">
+                                            <template x-for="event in events.filter(e => new Date(year, month, date).toDateString() )">
                                                 <div
                                                     class="px-2 py-1 rounded-lg mt-1 overflow-hidden border border-blue-200 text-blue-800 bg-blue-100">
-                                                    <p x-text="event.event_title" class="text-sm truncate leading-tight"></p>
+                                                    <p x-text="event.event_title" class="text-sm truncate leading-tight">{{ __('agenda.event') }}</p>
                                                 </div>
                                             </template>
                                         </div>
@@ -81,13 +81,13 @@
                         </div>
                     </div>
                     <div class="p-2">
-                    <x-backbutton/>
+                        <x-backbutton/>
                     </div>
                 </div>
             </div>
             <script>
-                const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-                const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                const MONTH_NAMES = {!! json_encode(__('agenda.MONTH_NAMES')) !!};
+                const DAYS = {!! json_encode(__('agenda.DAY_NAMES')) !!};
                 const events = [];
 
                 function app() {
@@ -96,7 +96,7 @@
                         year: '',
                         no_of_days: [],
                         blankdays: [],
-                        days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                        days: {!! json_encode(__('agenda.DAY_NAMES')) !!},
                         events,
 
                         initDate() {
@@ -140,8 +140,8 @@
                         event_date: new Date("{{ $date }}"),
                         event_title: "{{ $title }}"
                     });
-                    console.log(app().events);
                 </script>
             @endforeach
         </div>
 @endsection
+
