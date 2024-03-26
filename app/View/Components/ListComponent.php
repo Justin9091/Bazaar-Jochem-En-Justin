@@ -2,7 +2,7 @@
 
 namespace App\View\Components;
 
-use App\Models\Advertisment\Advertisment;
+use App\Models\advertisement\Advertisement;
 use Illuminate\View\Component;
 
 class ListComponent extends Component
@@ -14,7 +14,7 @@ class ListComponent extends Component
      * @return void
      */
     public function __construct(
-        public $advertisments,
+        public $advertisements,
     )
     {
     }
@@ -42,12 +42,12 @@ class ListComponent extends Component
         }
 
         if ($searchTerm) {
-            $this->advertisments = Advertisment::query()
+            $this->advertisements = Advertisement::query()
                 ->where('title', 'like', '%' . $searchTerm . '%')
                 ->cursorPaginate(10);
 
         } else {
-            $this->advertisments = Advertisment::query()->paginate(10);
+            $this->advertisements = Advertisement::query()->paginate(10);
         }
 
         return view('components.utils.list-component');

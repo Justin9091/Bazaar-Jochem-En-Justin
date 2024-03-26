@@ -15,19 +15,19 @@
         @endif
     </header>
 
-    @if(!$advertisments || count($advertisments) === 0)
+    @if(!$advertisements || count($advertisements) === 0)
         <div class="w-full text-center">
             <i>Geen advertenties gevonden!</i>
         </div>
     @else
         <div>
-            @foreach($advertisments as $ad)
+            @foreach($advertisements as $ad)
                 <div class="ad-card">
                     <x-ad-card :ad="$ad"/>
                 </div>
             @endforeach
         </div>
 
-        {{ $advertisments->links() }}
+        {{ $advertisements->links() }}
     @endif
 </div>

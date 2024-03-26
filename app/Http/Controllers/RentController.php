@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Advertisment\Advertisment;
-use App\Models\Advertisment\RentAdvertisment;
+use App\Models\advertisement\Advertisement;
+use App\Models\advertisement\RentAdvertisement;
 use Illuminate\Http\Request;
 
 class RentController
@@ -10,16 +10,16 @@ class RentController
 
     public function createagenda($userid, $date)
     {
-        $advertisements = Advertisment::where('user_id', $userid)->get();
+        $advertisements = Advertisement::where('user_id', $userid)->get();
         $rentingslist = array();
 
         foreach($advertisements as $advertisement){
             if ($advertisement->type == 'rent'){
-                $rents = RentAdvertisment::where('advertisment_id', $advertisement->id)->get();
+                $rents = RentAdvertisement::where('advertisement_id', $advertisement->id)->get();
                 foreach($rents as $rent){
-                    $rentAdvertisment = Advertisment::where('id', $rent->advertisment_id)->first();
-                    $rentingslist['Verhuur: ' . $rentAdvertisment->title] = $rent->from_date;
-                    $rentingslist['Teruggave: '. $rentAdvertisment->title] = $rent->to_date;
+                    $rentadvertisement = Advertisement::where('id', $rent->advertisement_id)->first();
+                    $rentingslist['Verhuur: ' . $rentadvertisement->title] = $rent->from_date;
+                    $rentingslist['Teruggave: '. $rentadvertisement->title] = $rent->to_date;
                 }
             }
         }
@@ -29,8 +29,8 @@ class RentController
         $fromDate = $request->input('fromDate');
         $toDate = $request->input('toDate');
 
-        $rentadvertisement = RentAdvertisment::create([
-            'advertisment_id' => $advertisementid,
+        $rentadvertisement = RentAdvertisement::create([
+            'advertisement_id' => $advertisementid,
             'from_date' => $fromDate,
             'to_date' => $toDate
         ]);

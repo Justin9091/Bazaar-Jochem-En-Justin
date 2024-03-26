@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('user_favorites', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('advertisment_id')->constrained('advertisments');
+            $table->foreignId('advertisement_id')->constrained('advertisements');
             $table->timestamps();
 
-            $table->index(['user_id', 'advertisment_id']);
+            $table->index(['user_id', 'advertisement_id']);
         });
     }
 

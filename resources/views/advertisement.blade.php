@@ -60,7 +60,7 @@
             const adId = formData.get("adId");
             const fromDate = formData.get("fromDate");
             const toDate = formData.get("toDate");
-            const url = "{{ url('advertisment') }}/" + adId + "/rentitem";
+            const url = "{{ url('advertisement') }}/" + adId + "/rentitem";
 
             window.location.href = url + `?fromDate=${fromDate}&toDate=${toDate}`;
         });

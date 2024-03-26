@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Advertisment\Advertisment;
+use App\Models\advertisement\Advertisement;
 use App\Models\ShortUrl;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -33,17 +33,17 @@ class SellerController extends Controller
         ]);
 
         // Create the advertisement
-        $advertisment = new Advertisment();
-        $advertisment->title = $validatedData['title'];
-        $advertisment->description = $validatedData['description'];
+        $advertisement = new Advertisement();
+        $advertisement->title = $validatedData['title'];
+        $advertisement->description = $validatedData['description'];
         if($validatedData['type'] == 'Huur'){
-            $advertisment->type = 'rent';
+            $advertisement->type = 'rent';
         } else {
-            $advertisment->type = 'sell';
+            $advertisement->type = 'sell';
         }
-        $advertisment->expires_at = $validatedData['expiration'];
-        $advertisment->user_id = $userId;
-        $advertisment->save();
+        $advertisement->expires_at = $validatedData['expiration'];
+        $advertisement->user_id = $userId;
+        $advertisement->save();
 
         // Redirect back or to any other route as needed
         return redirect()->route('sellerprofile', ['userId' => $userId])->with('success', 'Advertisement created successfully.');

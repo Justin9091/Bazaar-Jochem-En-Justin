@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Advertisment\Advertisment;
+use App\Models\advertisement\Advertisement;
 use Illuminate\Support\Facades\Response;
 
 class CSVController
 {
     public function createcsv($userid){
-        $advertisements = advertisment::where('user_id', $userid)->get();
+        $advertisements = Advertisement::where('user_id', $userid)->get();
         $data = array(
             array('title', 'description', 'type', 'expires_at'),
         );
@@ -49,7 +49,7 @@ class CSVController
             fgetcsv($file);
 
             while (($row = fgetcsv($file)) !== false) {
-                $advertisement = new Advertisment();
+                $advertisement = new Advertisement();
                 $advertisement->title = $row[0];
                 $advertisement->description = $row[1];
                 $advertisement->type = $row[2];

@@ -10,7 +10,7 @@ class CreateRentTable extends Migration
     {
         Schema::create('rent', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('advertisment_id')->constrained()->onDelete('cascade');
+            $table->foreignId('advertisement_id')->constrained()->onDelete('cascade');
             $table->date('from_date');
             $table->date('to_date');
             $table->timestamps();

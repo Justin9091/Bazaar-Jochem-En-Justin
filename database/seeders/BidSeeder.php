@@ -14,20 +14,20 @@ class BidSeeder extends Seeder
      */
     public function run()
     {
-        // Pick a random user and a random advertisment and create a bid
+        // Pick a random user and a random advertisement and create a bid
         // The bid price should always be higher than the previous bid
 
-        $advertisments = \App\Models\Advertisment\Advertisment::all();
+        $advertisements = \App\Models\advertisement\Advertisement::all();
         $users = \App\Models\User::all();
 
-        foreach ($advertisments as $advertisment) {
+        foreach ($advertisements as $advertisement) {
             $amountOfBids = rand(1, 5);
 
             for ($i = 0; $i < $amountOfBids; $i++) {
                 $bid = new \App\Models\Bid();
-                $bid->advertisment_id = $advertisment->id;
+                $bid->advertisement_id = $advertisement->id;
                 $bid->user_id = $users->random()->id;
-                $bid->bid = $advertisment->bids->max('bid') + rand(1, 100);
+                $bid->bid = $advertisement->bids->max('bid') + rand(1, 100);
                 $bid->save();
             }
         }

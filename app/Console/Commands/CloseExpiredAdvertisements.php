@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Advertisment\Advertisment;
+use App\Models\advertisement\Advertisement;
 use Illuminate\Console\Command;
 
 class CloseExpiredAdvertisements extends Command

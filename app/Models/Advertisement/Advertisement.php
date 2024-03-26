@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Advertisment;
+namespace App\Models\advertisement;
 
 use App\Models\Bid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,7 +9,7 @@ use App\Models\Review;
 
 
 
-class Advertisment extends Model
+class Advertisement extends Model
 {
     use HasFactory;
 
@@ -30,13 +30,13 @@ class Advertisment extends Model
     }
     public function getReviews($advertisementId, $userId)
     {
-        return Review::where('advertisment_id', $advertisementId)
+        return Review::where('advertisement_id', $advertisementId)
             ->where('user_id', $userId)
             ->get();
     }
 
-    public function rentAdvertisment()
+    public function rentadvertisement()
     {
-        return $this->hasOne(RentAdvertisment::class);
+        return $this->hasOne(RentAdvertisement::class);
     }
 }

@@ -9,7 +9,7 @@
             <div class="p-2 flex justify-between items-center mb-2">
                 <div>
                     <h2 class="text-xl font-semibold">Aanbiedingen</h2>
-                    <x-addadvertisment :userid="$user->id"></x-addadvertisment>
+                    <x-addadvertisement :userid="$user->id"></x-addadvertisement>
                 </div>
                 <div class="flex space-x-2">
                     <x-exportcsv :userid="$user->id" />
@@ -22,7 +22,7 @@
             @else
                 @foreach ($user->advertisements as $advertisement)
                     <div class="advertisement-box bg-gray-600 border border-gray-800 shadow-md rounded-lg p-4">
-                        <a href="/advertisment/{{$advertisement["id"]}}" class="block">
+                        <a href="/advertisement/{{$advertisement["id"]}}" class="block">
                             <h3 class="text-xl font-semibold text-white">{{$advertisement["title"]}}</h3>
                             <p class="mt-2 text-white">{{$advertisement["description"]}}</p>
                         </a>

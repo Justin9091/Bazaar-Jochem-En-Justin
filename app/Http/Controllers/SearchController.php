@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Advertisment\Advertisment;
+use App\Models\advertisement\Advertisement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Symfony\Component\Console\Input\Input;

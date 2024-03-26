@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
-use App\Http\Controllers\AdvertismentController;
+use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\BidController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
@@ -36,8 +36,8 @@ Route::post('/login', [LoginController::class, 'login']);
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/advertisment/{id}', [AdvertismentController::class, 'show'])->name('advertisment');
-Route::get('/advertisment/{id}/rentitem', [RentController::class, 'rentitem'])->name('rentitem');
+Route::get('/advertisement/{id}', [AdvertisementController::class, 'show'])->name('advertisement');
+Route::get('/advertisement/{id}/rentitem', [RentController::class, 'rentitem'])->name('rentitem');
 
 
 Route::get('/seller/{userId}', [SellerController::class, 'show'])->name('sellerprofile');
@@ -57,10 +57,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/account', [AccountController::class, 'index'])->name('account');
 
-    Route::post('/bid/{advertisment}', [BidController::class, 'bid'])->name('bid');
+    Route::post('/bid/{advertisement}', [BidController::class, 'bid'])->name('bid');
 
 
-    Route::get('/favorite/{advertisment}', [FavoriteController::class, 'favorite'])->name('favorite');
+    Route::get('/favorite/{advertisement}', [FavoriteController::class, 'favorite'])->name('favorite');
 
     Route::post('/shorturl/edit', [ShortUrlController::class, 'edit']);
 });

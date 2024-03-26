@@ -2,7 +2,7 @@
 
 namespace App\View\Components;
 
-use App\Models\Advertisment\Advertisment;
+use App\Models\advertisement\Advertisement;
 use Illuminate\View\Component;
 
 class AdCard extends Component
@@ -24,6 +24,6 @@ class AdCard extends Component
      */
     public function render()
     {
-        return view('components.advertisments.ad-card')->with('ad', $this->ad);
+        return view('components.advertisements.ad-card')->with('ad', $this->ad);
     }
 }

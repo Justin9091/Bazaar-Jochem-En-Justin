@@ -21,10 +21,10 @@ class FavoriteStar extends Component
         if (auth()->check()) {
             /*$this->isFavorited = UserFavorite::all()
                 ->where('user_id', auth()->id())
-                ->where('advertisment_id', $this->ad->id)
+                ->where('advertisement_id', $this->ad->id)
                 ->count() > 0;*/
 
-            $this->isFavorited = auth()->user()->favorites()->where('advertisment_id', $this->ad->id)->exists();
+            $this->isFavorited = auth()->user()->favorites()->where('advertisement_id', $this->ad->id)->exists();
         }
     }
 

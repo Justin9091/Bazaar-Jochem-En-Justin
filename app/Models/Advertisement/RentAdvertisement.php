@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Models\Advertisment;
+namespace App\Models\advertisement;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RentAdvertisment extends Advertisment
+class RentAdvertisement extends Advertisement
 {
     use HasFactory;
     protected $table = 'rent';
-    protected $fillable = ['advertisment_id','from_date', 'to_date'];
+    protected $fillable = ['advertisement_id','from_date', 'to_date'];
 
     public function advertisement()
     {
-        return $this->belongsTo(Advertisment::class);
+        return $this->belongsTo(Advertisement::class);
     }
 }
