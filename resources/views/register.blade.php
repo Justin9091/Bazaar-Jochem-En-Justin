@@ -3,8 +3,7 @@
 @section('page-title', __('registration.page_title'))
 
 @section('main-content')
-    <form action="/register" method="post">
-        @csrf
+    <x-form action="/register" method="post">
 
         <div class="flex">
             <x-text-input placeholder="{{ __('registration.firstname') }}" type="text" name="first-name"/>
@@ -34,7 +33,7 @@
         </div>
 
         <input class="{{$button}}" type="submit" value="{{ __('registration.register') }}"/>
-    </form>
+    </x-form>
 
     <script defer>
         let checkbox = document.getElementById('advertisement-placement');

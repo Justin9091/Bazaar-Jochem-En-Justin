@@ -1,7 +1,6 @@
 <div class="bg-white dark:bg-gray-800 rounded-lg p-4 mb-4 border border-black">
     <h2 class="text-xl font-semibold mb-4">Add Review</h2>
-    <form action="{{ route('add_review') }}" method="post" class="form-container">
-        @csrf
+    <x-form action="{{ route('add_review') }}" method="post" class="form-container">
         <div class="mb-4">
             <label for="score" class="block text-white font-semibold">Score:</label>
             <div class="flex items-center mt-2">
@@ -24,7 +23,7 @@
         <input type="hidden" id="reviewer" name="reviewer" value="{{ $reviewer }}" class="form-field">
         <input type="hidden" name="user_id" value="{{ $userid }}">
         <button onclick="submitReview()" type="submit" class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Submit Review</button>
-    </form>
+    </x-form>
 </div>
 <script>
     let rating = 0;
