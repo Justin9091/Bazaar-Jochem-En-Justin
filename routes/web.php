@@ -69,6 +69,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/landing/editor/remove/{id}', [LandingPageCreatorController::class, 'removeComponent'])->name('landing.editor.remove-component');
     Route::get('/landing/editor/up/{id}', [LandingPageCreatorController::class, 'moveComponentUp'])->name('landing.editor.up-component');
     Route::get('/landing/editor/down/{id}', [LandingPageCreatorController::class, 'moveComponentDown'])->name('landing.editor.down-component');
+    Route::post('/landing/editor/colors', [LandingPageCreatorController::class, 'updateColor'])->name('landing.editor.color');
 
     Route::post('/shorturl/edit', [ShortUrlController::class, 'edit']);
 });

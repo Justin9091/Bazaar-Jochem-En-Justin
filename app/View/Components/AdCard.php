@@ -14,7 +14,8 @@ class AdCard extends Component
      * @return void
      */
     public function __construct(
-        public $ad
+        public $ad,
+        public $color = null,
     ) {}
 
     /**

@@ -47,8 +47,8 @@
                                 <template x-for="(day, index) in DAYS" :key="index">
                                     <div style="width: 14.26%" class="px-2 py-2">
                                         <div
-                                            x-text="day"
-                                            class="text-gray-600 text-sm uppercase tracking-wide font-bold text-center">{{ __('agenda.DAY_NAMES.' + day) }}</div>
+{{--                                            x-text="day"--}}
+                                            class="text-gray-600 text-sm uppercase tracking-wide font-bold text-center">{{ __('agenda.DAY_NAMES.' /*+ day*/) }}</div>
                                     </div>
                                 </template>
                             </div>

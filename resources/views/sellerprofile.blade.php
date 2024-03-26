@@ -31,7 +31,7 @@
                 <p class="text-white bg-gray-800 rounded-lg p-4">{{ __('sellersprofile.no_offerings') }}</p>
             @else
                 @foreach ($user->advertisements as $advertisement)
-                    <x-ad-card :ad="$advertisement"/>
+                    <x-ad-card :color="$user->color" :ad="$advertisement"/>
                 @endforeach
             @endif
         </div>
