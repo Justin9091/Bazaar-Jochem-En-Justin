@@ -24,10 +24,10 @@
             @if(auth()->check())
                 <li><a href="/logout">@lang('site.logout')</a></li>
                 <i class="gg-inbox"></i>
-                <li><a href="/account" class="{{$button}}">@lang('site.account')</a></li>
+                <li><a href="/account">@lang('site.account')</a></li>
             @else
                 <li><a href="/login">@lang('site.login')</a></li>
-                <li><a href="/register" class="{{$button}}">@lang('site.register')</a></li>
+                <li><a href="/register">@lang('site.register')</a></li>
             @endif
         </ul>
     </header>

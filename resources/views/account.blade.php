@@ -34,7 +34,7 @@
 
     <h1 class="text-3xl">Favorites</h1>
 
-    <x-list-component :advertisments="$favoriteAds"/>
+    <x-list-component :advertisements="$favoriteAds"/>
 
     <x-form action="/shorturl/edit" method="POST">
         <x-text-input name="short_url" placeholder="{{ __('account.new_url') }}"/>

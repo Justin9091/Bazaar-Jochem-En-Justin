@@ -2,8 +2,6 @@
 
 @section("main-content")
 
-    <img src="{{$user->customLogo}}" alt="Logo">
-
     @foreach($components as $component)
         @if($component->type == 'text-component')
             <x-text-component :component="$component"/>
@@ -11,11 +9,6 @@
             <x-image-component :component="$component" />
         @endif
     @endforeach
-
-    <div class="container">
-        <h1 class="seller-name">{{ $user->name }}</h1>
-        <h2>Advertisements</h2>
-        <div class="advertisements-grid">
 
     <div class="container bg-gray-800 p-3 rounded-lg">
         <h1 class="seller-name text-3xl font-bold mb-4">{{ __('sellersprofile.seller_name', ['name' => $user->name]) }}</h1>

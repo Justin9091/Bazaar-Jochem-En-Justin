@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // Make sure the roleseeder is already done
-        $this->call(PropertiesSeeder::class);
         $this->call(RoleSeeder::class);
 
         $user = User::factory()->create();
