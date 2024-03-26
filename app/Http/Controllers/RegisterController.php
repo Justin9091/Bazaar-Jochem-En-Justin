@@ -19,11 +19,13 @@ class RegisterController extends Controller
         $name = $validated['first-name'] . " ";
         $name .= $validated['infix'] ? $validated['infix'] . ' ' : '';
         $name .= $validated['last-name'];
+        $apitoken = Str::random(80);
 
         $user = User::create([
             'email' => $validated['email'],
             'name' => $name,
             'password' => bcrypt($validated['password']),
+            'api_token' => $apitoken,
         ]);
 
         if(isset($validated["place-ads"]) && $validated['place-ads'] == "on") {
