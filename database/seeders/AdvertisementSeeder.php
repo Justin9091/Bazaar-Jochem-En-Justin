@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Advertisment\Advertisment;
+use App\Models\advertisement\Advertisement;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class AdvertismentSeeder extends Seeder
+class advertisementSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class AdvertismentSeeder extends Seeder
      */
     public function run()
     {
-        Advertisment::factory()->count(64)->create();
+        Advertisement::factory()->count(64)->create();
     }
 }

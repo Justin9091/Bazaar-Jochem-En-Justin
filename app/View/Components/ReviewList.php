@@ -3,20 +3,26 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use App\Models\Review;
 
-class ExportCsv extends Component
+class ReviewList extends Component
 {
+    public $reviews;
     public $userid;
+    public $adid;
 
     /**
      * Create a new component instance.
      *
-     * @param  int  $userid
+     * @param  $reviews
+     * @param  $userid
      * @return void
      */
-    public function __construct($userid)
+    public function __construct($reviews, $userid, $adid)
     {
+        $this->reviews = $reviews;
         $this->userid = $userid;
+        $this->adid = $adid;
     }
 
     /**
@@ -26,6 +32,6 @@ class ExportCsv extends Component
      */
     public function render()
     {
-        return view('components.exportcsv');
+        return view('components.review.review-list');
     }
 }

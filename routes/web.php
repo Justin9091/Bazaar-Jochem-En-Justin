@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
-use App\Http\Controllers\AdvertismentController;
+use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\BidController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CSVController;
+use \App\Http\Controllers\RentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,9 @@ Route::post('/login', [LoginController::class, 'login']);
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/advertisment/{id}', [AdvertismentController::class, 'show'])->name('advertisment');
+Route::get('/advertisement/{id}', [AdvertisementController::class, 'show'])->name('advertisement');
+Route::get('/advertisement/{id}/rentitem', [RentController::class, 'rentitem'])->name('rentitem');
+
 
 Route::get('/seller/{userId}', [SellerController::class, 'show'])->name('sellerprofile');
 Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add_review');
@@ -46,16 +49,18 @@ Route::get('/seller/{userId}/createqr', [SellerController::class, 'createqr'])->
 Route::get('/seller/{userId}/createcsv', [CSVController::class, 'createcsv'])->name('sellers.createcsv');
 Route::post('/seller/{userId}/importcsv', [CSVController::class, 'importcsv'])->name('sellers.importcsv');
 
+Route::get('/seller/{userid}/{date}', [RentController::class, 'createagenda'])->name('sellers.createagenda');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/properties', [PropertiesController::class, 'index'])->name('properties');
     Route::post('/properties/{property}', [PropertiesController::class, 'update']);
 
     Route::get('/account', [AccountController::class, 'index'])->name('account');
 
-    Route::post('/bid/{advertisment}', [BidController::class, 'bid'])->name('bid');
+    Route::post('/bid/{advertisement}', [BidController::class, 'bid'])->name('bid');
 
 
-    Route::get('/favorite/{advertisment}', [FavoriteController::class, 'favorite'])->name('favorite');
+    Route::get('/favorite/{advertisement}', [FavoriteController::class, 'favorite'])->name('favorite');
 
     Route::post('/shorturl/edit', [ShortUrlController::class, 'edit']);
 });

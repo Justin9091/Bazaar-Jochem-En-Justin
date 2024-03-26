@@ -4,16 +4,9 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class ExportCsv extends Component
+class agenda extends Component
 {
     public $userid;
-
-    /**
-     * Create a new component instance.
-     *
-     * @param  int  $userid
-     * @return void
-     */
     public function __construct($userid)
     {
         $this->userid = $userid;
@@ -26,6 +19,6 @@ class ExportCsv extends Component
      */
     public function render()
     {
-        return view('components.exportcsv');
+        return view('components.agenda');
     }
 }

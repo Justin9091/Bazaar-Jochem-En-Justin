@@ -24,5 +24,5 @@
 
     <h1 class="text-3xl">{{ __('account.favorites') }}</h1>
 
-    <x-list-component :advertisments="$favoriteAds"/>
+    <x-list-component :advertisements="$favoriteAds"/>
 @endsection

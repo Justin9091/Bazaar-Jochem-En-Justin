@@ -1,4 +1,4 @@
-<article class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md mb-4">
+<article class="bg-white dark:bg-gray-800 rounded-lg p-4 mb-4 border border-black">
     <div class="flex items-center mb-4">
         <div class="font-medium dark:text-white">
             <p>{{ $reviewer }}<time class="block text-sm text-gray-500 dark:text-gray-400">Geplaatst op {{ $date }}</time></p>

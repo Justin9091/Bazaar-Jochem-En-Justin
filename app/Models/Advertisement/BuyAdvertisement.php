@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Advertisment;
+namespace App\Models\advertisement;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RentAdvertisment extends Model
+class BuyAdvertisement extends Model
 {
     use HasFactory;
 }

@@ -4,8 +4,7 @@
 
 @section("main-content")
     <h2>Aanbieding toevoegen</h2>
-    <form action="{{ route('sellers.createadvertisement', ['userId' => $userId]) }}" method="POST">
-        @csrf
+    <x-form action="{{ route('sellers.createadvertisement', ['userId' => $userId]) }}" method="POST">
         <label for="title">Titel:</label><br>
         <input type="text" id="title" name="title"><br>
         <label for="description">Beschrijving:</label><br>
@@ -18,5 +17,5 @@
         <label for="expiration">Vervaldatum:</label><br>
         <input type="date" id="expiration" name="expiration"><br>
         <button type="submit">Aanbieding toevoegen</button>
-    </form>
+    </x-form>
 @endsection

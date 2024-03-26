@@ -11,15 +11,20 @@ class ReviewController extends Controller
         // Validate the request data
         $validatedData = $request->validate([
             'user_id' => 'required|exists:users,id',
+            'advertisement_id' => 'required|integer',
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
             'score' => 'required|integer|max:5',
             'reviewer' => 'required|string|max:255',
         ]);
+        if ($validatedData['advertisement_id'] == 0){
+            $validatedData['advertisement_id'] = null;
+        }
 
         // Create the review
         Review::create([
             'user_id' => $validatedData['user_id'],
+            'advertisement_id' => $validatedData['advertisement_id'],
             'title' => $validatedData['title'],
             'description' => $validatedData['description'],
             'score' => $validatedData['score'],

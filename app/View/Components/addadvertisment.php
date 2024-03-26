@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class addadvertisment extends Component
+class addadvertisement extends Component
 {
     public $userid;
     public function __construct($userid)
@@ -14,6 +14,6 @@ class addadvertisment extends Component
 
     public function render()
     {
-        return view('components.addadvertisment');
+        return view('components.addadvertisement');
     }
 }

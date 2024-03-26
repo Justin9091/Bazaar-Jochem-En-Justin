@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\Advertisment\Advertisment;
+use App\Models\advertisement\Advertisement;
 
 class User extends Authenticatable
 {
@@ -65,7 +65,7 @@ class User extends Authenticatable
     }
     public function advertisements()
     {
-        return $this->hasMany(Advertisment::class);
+        return $this->hasMany(Advertisement::class);
     }
     public function reviews()
     {
