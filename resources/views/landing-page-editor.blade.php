@@ -10,11 +10,11 @@
 
                     <div class="flex flex-col gap-2">
                         <a class="p-1 bg-blue-500 text-white text-bold text-center rounded-lg"
-                           href="/landing/editor/up/{{$component->id}}">Move up</a>
+                           href="/landing/editor/up/{{$component->id}}">{{@__('editor.move_up')}}</a>
                         <a class="p-1 bg-red-500 text-white text-bold text-center rounded-lg"
-                           href="/landing/editor/remove/{{$component->id}}">Delete</a>
+                           href="/landing/editor/remove/{{$component->id}}">{{@__('editor.delete')}}</a>
                         <a class="p-1 bg-blue-500 text-white text-bold text-center rounded-lg"
-                           href="/landing/editor/down/{{$component->id}}">Move down</a>
+                           href="/landing/editor/down/{{$component->id}}">{{@__('editor.move_down')}}</a>
                     </div>
 
                     <div class="">
@@ -29,36 +29,36 @@
 
             <div class="bg-gray-800 rounded-lg p-3">
 
-                <h1 class="text-3xl text-center font-bold p-2">Add component</h1>
+                <h1 class="text-3xl text-center font-bold p-2">{{@__('editor.add_component_title')}}</h1>
 
                 <form enctype="multipart/form-data" action="/landing/editor/add" method="POST">
                     @csrf
 
                     <select name="type" onchange="show()" id="select" class="text-slate-950 w-full p-2 rounded-lg">
-                        <option value="none" selected>Select type</option>
+                        <option value="none" selected>{{@__('editor.select_type')}}</option>
                         @foreach(\App\enum\ComponentType::cases() as $type)
-                            <option class="text-slate-950" value="{{$type}}">{{$type}}</option>
+                            <option class="text-slate-950" value="{{$type}}">{{$type->getLabel()}}</option>
                         @endforeach
                     </select>
 
                     <div id="text-component" class="hidden">
                         <div class="">
-                            <p>Text:</p>
+                            <p>{{@__('editor.text')}}</p>
                             <input name="text" type="text" class="text-slate-950 w-full p-2 rounded-lg">
                         </div>
 
                         <div class="">
-                            <p>Font size:</p>
+                            <p>{{@__('editor.font_size')}}</p>
                             <input min="12" max="72" name="size" type="number"
                                    class="text-slate-950 w-full p-2 rounded-lg">
                         </div>
                     </div>
 
                     <div id="image-component" class="hidden">
-                        <p>PLAATJE</p>
+                        <p>{{@__('editor.image')}}</p>
                         <input name="image" type="file" class="text-slate-950 w-full p-2 rounded-lg bg-white"/>
 
-                        <p>Onderschrift</p>
+                        <p>{{@__('editor.description')}}</p>
                         <input type="text" name="description" class="w-full p-2 rounded-lg">
                     </div>
 
@@ -70,8 +70,8 @@
                     <p class="text-red-500">{{ $message }}</p>
                     @enderror
 
-                    <div class="flex justify-center">
-                        <x-submit-button/>
+                    <div class="flex justify-center p-4">
+                        <input class="p-3 bg-red-500 text-white text-bold text-center rounded-lg" type="submit" value="{{@__('editor.submit_button')}}">
                     </div>
                 </form>
             </div>
