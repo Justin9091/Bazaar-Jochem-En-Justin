@@ -3,6 +3,14 @@
 @section("main-content")
     <img src="{{$user->customLogo}}" alt="Logo">
 
+    @foreach($components as $component)
+        @if($component->type == 'text-component')
+            <x-text-component :component="$component"/>
+        @elseif($component->type == 'image-component')
+            <x-image-component :component="$component" />
+        @endif
+    @endforeach
+
     <div class="container">
         <h1 class="seller-name">{{ $user->name }}</h1>
         <h2>Advertisements</h2>

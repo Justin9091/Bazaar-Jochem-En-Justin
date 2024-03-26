@@ -6,6 +6,7 @@ use App\Http\Controllers\BidController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\LandingPageCreatorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\RegisterController;
@@ -52,6 +53,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/favorite/{advertisment}', [FavoriteController::class, 'favorite'])->name('favorite');
 
+    Route::get('/landing/editor', [LandingPageCreatorController::class, 'index'])->name('landing.editor');
+    Route::post('/landing/editor/add', [LandingPageCreatorController::class, 'addComponent'])->name('landing.editor.add-component');
+    Route::get('/landing/editor/remove/{id}', [LandingPageCreatorController::class, 'removeComponent'])->name('landing.editor.remove-component');
+    Route::get('/landing/editor/up/{id}', [LandingPageCreatorController::class, 'moveComponentUp'])->name('landing.editor.up-component');
+    Route::get('/landing/editor/down/{id}', [LandingPageCreatorController::class, 'moveComponentDown'])->name('landing.editor.down-component');
 });
 
 // ToDo remove later
