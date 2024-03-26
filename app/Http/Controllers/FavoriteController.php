@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 
 class FavoriteController extends Controller
 {
-    function favorite(Request $request, $advertisment)
+    function favorite(Request $request, $advertisement)
     {
         $user = $request->user();
 
-        // Check if the user has already favorited the advertisment
-        if ($user->favorites()->where('advertisment_id', $advertisment)->exists()) {
-            $user->favorites()->where('advertisment_id', $advertisment)->delete();
+        // Check if the user has already favorited the advertisement
+        if ($user->favorites()->where('advertisement_id', $advertisement)->exists()) {
+            $user->favorites()->where('advertisement_id', $advertisement)->delete();
         } else {
-            $user->favorites()->create(['advertisment_id' => $advertisment]);
+            $user->favorites()->create(['advertisement_id' => $advertisement]);
         }
 
         return redirect()->back();

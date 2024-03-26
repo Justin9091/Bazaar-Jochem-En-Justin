@@ -13,13 +13,16 @@ class AddReview extends Component
      */
     public $userid;
     public $reviewer;
+    public $adid;
     public function __construct(
         int $userid,
-        string $reviewer = ''
+        string $reviewer = '',
+        $adid
     )
     {
         $this->userid = $userid;
         $this->reviewer = $reviewer;
+        $this->adid = $adid;
     }
 
     /**
@@ -29,6 +32,6 @@ class AddReview extends Component
      */
     public function render()
     {
-        return view('components.add-review');
+        return view('components.review.add-review');
     }
 }

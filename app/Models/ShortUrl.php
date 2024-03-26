@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Models\Advertisment;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RentAdvertisment extends Model
+class ShortUrl extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['seller_id', 'short_url'];
 }

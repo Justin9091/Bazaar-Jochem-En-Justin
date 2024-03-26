@@ -2,22 +2,22 @@
 
 namespace App\Models;
 
-use App\Models\Advertisment\Advertisment;
+use App\Models\advertisement\Advertisement;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
     protected $fillable = [
-        'title', 'description', 'user_id', 'advertisment_id', 'score', 'reviewer', 'date'
+        'title', 'description', 'user_id', 'advertisement_id', 'score', 'reviewer', 'date'
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    public function advertisment()
+    public function advertisement()
     {
-        return $this->belongsTo(Advertisment::class);
+        return $this->belongsTo(Advertisement::class);
     }
 }

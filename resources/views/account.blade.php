@@ -1,11 +1,12 @@
 @extends('layouts.main')
 
-@section('page-title', 'Account')
+@section('page-title', __('account.account'))
 
 @section("main-content")
     <h1 class="text-xl">{{ Auth::user()->name }}</h1>
 
     @if(Auth::user()->hasRole("business"))
+
         <button>Exporteer registratie</button>
 
         <h2 class="text-2xl">Look and feel</h2>
@@ -16,7 +17,12 @@
 
             <x-submit-button value="Upload"/>
         </form>
+
+        <button class="{{$button}}">{{ __('account.export_registration') }}</button>
     @endif
+
+    <h1 class="text-3xl">{{ __('account.short_url') }}</h1>
+    <p>{{ __('account.enter_personal_ad_url') }}</p>
 
 
     <div class="">
@@ -29,4 +35,19 @@
     <h1 class="text-3xl">Favorites</h1>
 
     <x-list-component :advertisments="$favoriteAds"/>
+
+    <x-form action="/shorturl/edit" method="POST">
+        <x-text-input name="short_url" placeholder="{{ __('account.new_url') }}"/>
+
+        <x-submit-button/>
+    </x-form>
+
+    @if($url)
+        <a href="/{{$url}}" class="italic">{{ __('account.go_to_page') }}</a>
+    @endif
+
+    <h1 class="text-3xl">{{ __('account.favorites') }}</h1>
+
+    <x-list-component :advertisements="$favoriteAds"/>
+
 @endsection

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Advertisment\Advertisment;
+use App\Models\advertisement\Advertisement;
 use App\Models\User;
 use App\Models\UserFavorite;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -19,12 +19,12 @@ class FavoriteSeeder extends Seeder
     {
         // Make for every user 30 random favorite
         User::all()->each(function ($user) {
-            $randomAds = Advertisment::inRandomOrder()->limit(5)->get();
+            $randomAds = Advertisement::inRandomOrder()->limit(5)->get();
 
             $randomAds->each(function ($ad) use ($user) {
                 UserFavorite::create([
                     'user_id' => $user->id,
-                    'advertisment_id' => $ad->id
+                    'advertisement_id' => $ad->id
                 ]);
             });
         });

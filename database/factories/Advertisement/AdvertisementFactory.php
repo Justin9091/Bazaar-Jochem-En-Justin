@@ -1,13 +1,13 @@
 <?php
 
-namespace Database\Factories\Advertisment;
+namespace Database\Factories\advertisement;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class AdvertismentFactory extends Factory
+class advertisementFactory extends Factory
 {
     /**
      * Define the model's default state.

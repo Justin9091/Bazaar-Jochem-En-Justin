@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ShortUrl;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
@@ -12,10 +14,17 @@ class AccountController extends Controller
 
         // Loop through the favorites and get the ad
         foreach ($favorites as $favorite) {
-            $favorite->ad = $favorite->advertisment;
+            $favorite->ad = $favorite->advertisement;
+        }
+
+        $url = ShortUrl::all()->where('seller_id', Auth::getUser()->id)->first();
+
+        if($url) {
+            $url = $url->short_url;
         }
 
         return view('account')
-            ->with('favoriteAds', $favorites);
+            ->with('favoriteAds', $favorites)
+            ->with('url', $url);
     }
 }

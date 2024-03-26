@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $business->roles()->attach(2);
 
-        $this->call(AdvertismentSeeder::class);
+        $this->call(advertisementSeeder::class);
         $this->call(BidSeeder::class);
         $this->call(FavoriteSeeder::class);
     }
