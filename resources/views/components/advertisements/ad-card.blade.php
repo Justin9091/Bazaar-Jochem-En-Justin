@@ -1,8 +1,10 @@
-<a href="/advertisement/{{$ad["id"]}}" class="block {{$card}} border border-gray-700 rounded-lg hover:shadow-lg transition duration-300 ease-in-out">
-    <div class="p-4">
-        <h3 class="text-lg font-semibold mb-2">{{$ad["title"]}}</h3>
-        <p class="text-gray-600">{{$ad["description"]}}</p>
-    </div>
-</a>
+<div class="p-3 rounded-lg bg-white dark:bg-gray-800">
+    <a href="/advertisment/{{$ad["id"]}}">
+        <div class="">
+            <h3>{{$ad["title"]}}</h3>
+            <p>{{$ad["description"]}}</p>
+        </div>
+    </a>
 
-<x-favorite-star :ad="$ad" class="ml-4"/>
+    <x-favorite-star :ad="$ad" />
+</div>
