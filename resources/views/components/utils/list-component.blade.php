@@ -1,14 +1,12 @@
 <!-- In resources/views/components/utils/list-component.blade.php -->
 <div class="mx-24">
     <header>
-        <form action="{{ 'search' }}" method="POST">
-            @csrf
-
+        <x-form action="{{ 'search' }}" method="POST">
             <x-text-input type="text" placeholder="Zoekterm" name="search-term"
                    class="p-1 m-1 rounded-lg border border-black" value="{{ htmlspecialchars(session()->get('search')) }}"  />
 
             <x-submit-button value="Zoek" />
-        </form>
+        </x-form>
 
         @if(session()->has('search'))
             <form action="/clear-search" method="POST">

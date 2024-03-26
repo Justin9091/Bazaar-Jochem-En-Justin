@@ -6,7 +6,7 @@
         <div class="flex flex-col gap-2">
             @foreach($components as $component)
 
-                <div class="bg-gray-800 rounded-lg p-3 flex justify-between items-center">
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-3 flex justify-between items-center shadow-lg">
 
                     <div class="flex flex-col gap-2">
                         <a class="p-1 bg-blue-500 text-white text-bold text-center rounded-lg"
@@ -27,7 +27,7 @@
                 </div>
             @endforeach
 
-            <div class="bg-gray-800 rounded-lg p-3">
+            <div class="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-lg">
 
                 <h1 class="text-3xl text-center font-bold p-2">{{@__('editor.add_component_title')}}</h1>
 
@@ -71,7 +71,34 @@
                     @enderror
 
                     <div class="flex justify-center p-4">
-                        <input class="p-3 bg-red-500 text-white text-bold text-center rounded-lg" type="submit" value="{{@__('editor.submit_button')}}">
+                        <input class="p-3 bg-red-500 text-white text-bold text-center rounded-lg" type="submit"
+                               value="{{@__('editor.submit_button')}}">
+                    </div>
+                </form>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-lg">
+
+                <h1 class="text-3xl text-center font-bold p-2">{{@__('editor.colors')}}</h1>
+
+                <form action="/landing/editor/colors" method="POST">
+                    @csrf
+
+                    <div class="flex flex-col gap-2">
+                        <div class="flex gap-2">
+                            <p>{{@__('editor.background_color')}}</p>
+                            <input name="background_color" type="color" class="text-slate-950 w-full p-2 rounded-lg">
+                        </div>
+
+                        <div class="flex gap-2">
+                            <p>{{@__('editor.text_color')}}</p>
+                            <input name="text_color" type="color" class="text-slate-950 w-full p-2 rounded-lg">
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center p-4">
+                        <input class="p-3 bg-red-500 text-white text-bold text-center rounded-lg" type="submit"
+                               value="{{@__('editor.submit_button')}}">
                     </div>
                 </form>
             </div>

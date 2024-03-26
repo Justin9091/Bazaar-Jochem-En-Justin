@@ -13,8 +13,8 @@
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-<div class="{{"bg-".$background_color."-".$background_opacity}} min-h-screen mix-blend-multiply {{$primary_text}}">
-    <header class="flex justify-between p-4 {{$shadow}} px-32">
+<div class="bg-slate-100 dark:bg-slate-600 min-h-screen mix-blend-multiply text-black dark:text-white">
+    <header class="bg-white dark:bg-slate-700 flex justify-between p-4 shadow-lg px-32">
         <ul class="m-2">
             <li><a href="/">LOGO</a></li>
         </ul>
@@ -25,10 +25,10 @@
             @if(auth()->check())
                 <li><a href="/logout">Logout</a></li>
                 <i class="gg-inbox"></i>
-                <li><a href="/account" class="{{$button}}">Account</a></li>
+                <li><a href="/account">Account</a></li>
             @else
                 <li><a href="/login">Login</a></li>
-                <li><a href="/register" class="{{$button}}">Register</a></li>
+                <li><a href="/register">Register</a></li>
             @endif
         </ul>
     </header>

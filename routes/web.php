@@ -43,9 +43,6 @@ Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add_re
 Route::post('/image/{folder?}/{name?}', [ImageController::class, 'store'])->name('image');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/properties', [PropertiesController::class, 'index'])->name('properties');
-    Route::post('/properties/{property}', [PropertiesController::class, 'update']);
-
     Route::get('/account', [AccountController::class, 'index'])->name('account');
 
     Route::post('/bid/{advertisment}', [BidController::class, 'bid'])->name('bid');

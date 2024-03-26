@@ -6,7 +6,7 @@
     <h1 class="text-xl">{{ Auth::user()->name }}</h1>
 
     @if(Auth::user()->hasRole("business"))
-        <button class="{{$button}}">Exporteer registratie</button>
+        <button>Exporteer registratie</button>
 
         <h2 class="text-2xl">Look and feel</h2>
 
