@@ -1,1 +1,1 @@
-<input type="submit" value="{{$value}}" class="{{$button}}">
+<input type="submit" value="{{$value}}">

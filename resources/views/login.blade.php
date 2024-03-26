@@ -7,7 +7,7 @@
         <x-text-input placeholder="{{__('login.email')}}" type="email" name="email"/>
         <x-text-input placeholder="{{__('login.password')}}" type="password" name="password"/>
 
-        <input class="{{$button}}" type="submit" value="{{__('login.login')}}"/>
+        <x-submit-button value="{{__('login.login')}}"/>
     </x-form>
 
 @endsection

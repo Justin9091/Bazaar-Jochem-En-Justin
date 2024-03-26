@@ -5,6 +5,8 @@ use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\BidController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\LandingPageCreatorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\RegisterController;
@@ -46,21 +48,27 @@ Route::get('/seller/{userId}/addadvertisement', [SellerController::class, 'showa
 Route::post('/seller/{userId}/addadvertisement', [SellerController::class, 'createadvertisement'])->name('sellers.createadvertisement');
 Route::get('/seller/{userId}/createqr', [SellerController::class, 'createqr'])->name('sellers.createqr');
 
+
+Route::post('/image/{folder?}/{name?}', [ImageController::class, 'store'])->name('image');
+
 Route::get('/seller/{userId}/createcsv', [CSVController::class, 'createcsv'])->name('sellers.createcsv');
 Route::post('/seller/{userId}/importcsv', [CSVController::class, 'importcsv'])->name('sellers.importcsv');
 
 Route::get('/seller/{userid}/{date}', [RentController::class, 'createagenda'])->name('sellers.createagenda');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/properties', [PropertiesController::class, 'index'])->name('properties');
-    Route::post('/properties/{property}', [PropertiesController::class, 'update']);
-
     Route::get('/account', [AccountController::class, 'index'])->name('account');
 
     Route::post('/bid/{advertisement}', [BidController::class, 'bid'])->name('bid');
 
 
     Route::get('/favorite/{advertisement}', [FavoriteController::class, 'favorite'])->name('favorite');
+
+    Route::get('/landing/editor', [LandingPageCreatorController::class, 'index'])->name('landing.editor');
+    Route::post('/landing/editor/add', [LandingPageCreatorController::class, 'addComponent'])->name('landing.editor.add-component');
+    Route::get('/landing/editor/remove/{id}', [LandingPageCreatorController::class, 'removeComponent'])->name('landing.editor.remove-component');
+    Route::get('/landing/editor/up/{id}', [LandingPageCreatorController::class, 'moveComponentUp'])->name('landing.editor.up-component');
+    Route::get('/landing/editor/down/{id}', [LandingPageCreatorController::class, 'moveComponentDown'])->name('landing.editor.down-component');
 
     Route::post('/shorturl/edit', [ShortUrlController::class, 'edit']);
 });

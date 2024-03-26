@@ -32,8 +32,9 @@
             </div>
         </div>
 
-        <input class="{{$button}}" type="submit" value="{{ __('registration.register') }}"/>
+        <x-submit-button value="{{ __('registration.register') }}"/>
     </x-form>
+
 
     <script defer>
         let checkbox = document.getElementById('advertisement-placement');

@@ -2,6 +2,7 @@
 <div class="mx-24">
     <header>
         <x-form action="{{ 'search' }}" method="POST">
+
             <x-text-input type="text" placeholder="{{ __('components.search_placeholder') }}" name="search-term"
                           class="p-1 m-1 rounded-lg border border-black" value="{{ htmlspecialchars(session()->get('search')) }}"  />
 
