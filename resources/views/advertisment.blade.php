@@ -9,6 +9,10 @@
         <div class="w-75">
             <h1 class="text-4xl my-3">{{$ad["title"]}}</h1>
             <p>{{$ad["description"]}}</p>
+
+            <div class="flex">
+                <x-qr-code :url="env('APP_URL') . '/advertisment/' . $ad['id'] "/>
+            </div>
         </div>
     </div>
 @endsection
