@@ -49,6 +49,8 @@ Route::post('/seller/{userId}/addadvertisement', [SellerController::class, 'crea
 Route::get('/seller/{userId}/createqr', [SellerController::class, 'createqr'])->name('sellers.createqr');
 
 Route::get('/download-contract', [CSVController::class, 'downloadContract'])->name('download.contract');
+Route::post('/upload-contract', [CSVController::class, 'uploadContract'])->name('upload.contract');
+
 
 Route::post('/image/{folder?}/{name?}', [ImageController::class, 'store'])->name('image');
 

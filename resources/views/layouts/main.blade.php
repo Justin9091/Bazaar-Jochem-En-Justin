@@ -12,13 +12,14 @@
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-<a href="{{ route('download.contract') }}" class="btn btn-primary" download="contract.pdf">@lang('csv.download_contract')</a>
 
 <div class="bg-slate-100 dark:bg-slate-600 min-h-screen mix-blend-multiply text-black dark:text-white">
     <header class="bg-white dark:bg-slate-700 flex justify-between p-4 shadow-lg px-32">
         <ul class="m-2">
             <li><a href="/">@lang('site.logo')</a></li>
         </ul>
+
+        <x-contract></x-contract>
 
         <ul class="flex gap-3 m-2">
             <x-language-switcher/>
@@ -38,6 +39,5 @@
         @yield("main-content")
     </div>
 </div>
-
 </body>
 </html>
