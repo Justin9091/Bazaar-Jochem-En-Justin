@@ -30,19 +30,9 @@
                 @endforeach
             @endif
         </div>
-        <div class="reviews-list">
-            <h2 class="text-xl font-semibold p-3">Reviews</h2>
-            <x-add-review userid="{{$user->id}}" reviewer="verander nog ooit"></x-add-review>
-            @if ($user->reviews->isEmpty())
-                <p class="text-white bg-gray-800 rounded-lg p-4">Geen reviews voor deze verkoper</p>
-            @else
-                <ul>
-                    @foreach ($user->reviews as $review)
-                        <x-review title="{{$review->title}}" description="{{$review->description}}" score="{{$review->score}}" reviewer="{{$review->reviewer}}" date="{{$review->date}}"/>
-                    @endforeach
-                </ul>
-            @endif
-        </div>
+
+        <x-review-list :userid="$user->id" :adid="0" :reviews="$user->reviews"/>
+
         <x-backbutton class="absolute bottom-8 left-8"></x-backbutton>
     </div>
 @endsection

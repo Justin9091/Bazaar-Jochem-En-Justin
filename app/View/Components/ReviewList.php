@@ -3,25 +3,25 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use App\Models\Review;
 
-class AddReview extends Component
+class ReviewList extends Component
 {
+    public $reviews;
+    public $userid;
+    public $adid;
+
     /**
      * Create a new component instance.
      *
+     * @param  $reviews
+     * @param  $userid
      * @return void
      */
-    public $userid;
-    public $reviewer;
-    public $adid;
-    public function __construct(
-        int $userid,
-        string $reviewer = '',
-        $adid
-    )
+    public function __construct($reviews, $userid, $adid)
     {
+        $this->reviews = $reviews;
         $this->userid = $userid;
-        $this->reviewer = $reviewer;
         $this->adid = $adid;
     }
 
@@ -32,6 +32,6 @@ class AddReview extends Component
      */
     public function render()
     {
-        return view('components.review.add-review');
+        return view('components.review.review-list');
     }
 }

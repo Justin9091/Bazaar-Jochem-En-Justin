@@ -5,6 +5,9 @@ namespace App\Models\Advertisment;
 use App\Models\Bid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Review;
+
+
 
 class Advertisment extends Model
 {
@@ -25,6 +28,13 @@ class Advertisment extends Model
     {
         return $this->hasMany(Review::class);
     }
+    public function getReviews($advertisementId, $userId)
+    {
+        return Review::where('advertisment_id', $advertisementId)
+            ->where('user_id', $userId)
+            ->get();
+    }
+
     public function rentAdvertisment()
     {
         return $this->hasOne(RentAdvertisment::class);
