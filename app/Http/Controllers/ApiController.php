@@ -14,7 +14,6 @@ class ApiController extends Controller
 
         if ($user) {
             $reviews = $user->reviews()->get();
-
             return response()->json($reviews);
         } else {
             return response()->json(['error' => 'Invalid API token'], 401);
@@ -27,7 +26,6 @@ class ApiController extends Controller
 
         if ($user) {
             $advertisements = $user->advertisements()->get();
-
             return response()->json($advertisements);
         } else {
             return response()->json(['error' => 'Invalid API token'], 401);
@@ -41,7 +39,6 @@ class ApiController extends Controller
         if ($user) {
             $advertisements = $user->advertisements()->get();
             $reviews = $user->reviews()->get();
-
             return response()->json(['advertisements' => $advertisements, 'reviews' => $reviews]);
         } else {
             return response()->json(['error' => 'Invalid API token'], 401);
