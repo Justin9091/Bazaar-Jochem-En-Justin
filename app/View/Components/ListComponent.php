@@ -44,10 +44,11 @@ class ListComponent extends Component
         if ($searchTerm) {
             $this->advertisements = Advertisement::query()
                 ->where('title', 'like', '%' . $searchTerm . '%')
+                ->orderBy('id', 'desc')
                 ->cursorPaginate(10);
 
         } else {
-            $this->advertisements = Advertisement::query()->paginate(10);
+            $this->advertisements = Advertisement::query()->orderBy('id', 'desc')->paginate(10);
         }
 
         return view('components.utils.list-component');

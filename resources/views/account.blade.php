@@ -18,7 +18,7 @@
             <x-submit-button value="Upload"/>
         </form>
 
-        <button class="{{$button}}">{{ __('account.export_registration') }}</button>
+        <button>{{ __('account.export_registration') }}</button>
     @endif
 
     <h1 class="text-3xl">{{ __('account.short_url') }}</h1>

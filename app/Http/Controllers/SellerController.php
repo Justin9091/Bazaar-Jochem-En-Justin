@@ -33,7 +33,8 @@ class SellerController extends Controller
             }
         }
 
-        return view('sellerprofile', compact('user', 'components'));
+        return view('sellerprofile', compact('user', 'components'))
+            ->with("userid", $userId);
     }
 
     public function showaddadvertisementform($userId)
