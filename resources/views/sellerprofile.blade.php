@@ -19,14 +19,6 @@
                 <p>No advertisements found for this user.</p>
             @else
                 @foreach ($user->advertisements as $advertisement)
-{{--                    <div class="advertisement-box">--}}
-{{--                        <a href="/advertisment/{{$advertisement["id"]}}">--}}
-{{--                            <div>--}}
-{{--                                <h3>{{$advertisement["title"]}}</h3>--}}
-{{--                                <p>{{$advertisement["description"]}}</p>--}}
-{{--                            </div>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
                     <x-ad-card :ad="$advertisement"/>
                 @endforeach
             @endif
