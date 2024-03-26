@@ -1,8 +1,8 @@
 <div class="reviews-list">
-    <h2 class="text-xl font-semibold p-3">Reviews</h2>
+    <h2 class="text-xl font-semibold p-3">@lang('review.reviews')</h2>
     <x-add-review :userid="$userid" reviewer="verander nog ooit" :adid="$adid"></x-add-review>
     @if ($reviews->isEmpty())
-        <p class="text-white bg-gray-800 rounded-lg p-4">Geen reviews voor deze verkoper</p>
+        <p class="text-white bg-gray-800 rounded-lg p-4">@lang('review.no_reviews')</p>
     @else
         <ul>
             @foreach ($reviews as $review)

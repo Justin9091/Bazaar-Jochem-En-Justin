@@ -1,4 +1,4 @@
-<button id="backButton" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Terug</button>
+<button id="backButton" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">{{ __('backbutton.back_button') }}</button>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
