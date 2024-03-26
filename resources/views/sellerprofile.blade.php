@@ -25,8 +25,8 @@
                 </div>
             </div>
         @endif
-        <div class="advertisements-grid grid gap-4">
 
+        <div class="advertisements-grid grid gap-4">
             @if ($user->advertisements->isEmpty())
                 <p class="text-white bg-gray-800 rounded-lg p-4">{{ __('sellersprofile.no_offerings') }}</p>
             @else
