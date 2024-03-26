@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Response;
 
 class CSVController
 {
+    public function downloadContract()
+    {
+        $filePath = storage_path('app/public/contracts/contract.pdf');
+        $fileName = 'contract.pdf';
+        $headers = ['Content-Type: application/pdf'];
+
+        return Response::download($filePath, $fileName, $headers);
+    }
+
     public function createcsv($userid){
         $advertisements = Advertisement::where('user_id', $userid)->get();
         $data = array(
