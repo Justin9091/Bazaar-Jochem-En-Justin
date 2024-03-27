@@ -7,6 +7,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LandingPageCreatorController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\RegisterController;
@@ -74,12 +75,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/shorturl/edit', [ShortUrlController::class, 'edit']);
 });
 
-// ToDo remove later
-Route::get('language/{locale}', function ($locale) {
-    app()->setLocale($locale);
-    session()->put('locale', $locale);
-    return redirect()->back();
-});
+Route::post('language', [LanguageController::class, 'switch'])->name('language.switch');
 
 // In routes/web.php
 Route::post('/search', [SearchController::class, 'search'])->name('search');
