@@ -7,11 +7,13 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LandingPageCreatorController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ShortUrlController;
+use App\Http\Middleware\CanPlaceAdvertisements;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ReviewController;
@@ -29,23 +31,22 @@ use \App\Http\Controllers\RentController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get("/register", [RegisterController::class, 'index']);
-Route::post("/register", [RegisterController::class, 'store']);
+Route::get('/', [HomeController::class, 'index'])->name("home");
+Route::get("/register", [RegisterController::class, 'index'])->name("register");
+Route::post("/register", [RegisterController::class, 'store'])->name("register.store");
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
+Route::post('/login', [LoginController::class, 'login'])->name('login.store');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/advertisement/{id}', [AdvertisementController::class, 'show'])->name('advertisement');
-Route::get('/advertisement/{id}/rentitem', [RentController::class, 'rentitem'])->name('rentitem');
+Route::get('/advertisement/{id}/rentitem', [RentController::class, 'rentitem'])->name('advertisement.rent');
 
 
 Route::get('/seller/{userId}', [SellerController::class, 'show'])->name('sellerprofile');
 Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add_review');
-Route::get('/seller/{userId}/addadvertisement', [SellerController::class, 'showaddadvertisementform'])->name('sellers.addadvertisement');
-Route::post('/seller/{userId}/addadvertisement', [SellerController::class, 'createadvertisement'])->name('sellers.createadvertisement');
+
 Route::get('/seller/{userId}/createqr', [SellerController::class, 'createqr'])->name('sellers.createqr');
 
 Route::get('/download-contract', [CSVController::class, 'downloadContract'])->name('download.contract');
@@ -57,9 +58,15 @@ Route::post('/image/{folder?}/{name?}', [ImageController::class, 'store'])->name
 Route::get('/seller/{userId}/createcsv', [CSVController::class, 'createcsv'])->name('sellers.createcsv');
 Route::post('/seller/{userId}/importcsv', [CSVController::class, 'importcsv'])->name('sellers.importcsv');
 
+Route::middleware(CanPlaceAdvertisements::class)->prefix("/seller/{userId}/")->group(function () {
+    Route::get('addadvertisement', [SellerController::class, 'showaddadvertisementform'])->name('sellers.addadvertisement');
+    Route::post('addadvertisement', [SellerController::class, 'createadvertisement'])->name('sellers.createadvertisement');
+});
+
 Route::get('/seller/{userid}/{date}', [RentController::class, 'createagenda'])->name('sellers.createagenda');
 
 Route::middleware(['auth'])->group(function () {
+
     Route::get('/account', [AccountController::class, 'index'])->name('account');
 
     Route::post('/bid/{advertisement}', [BidController::class, 'bid'])->name('bid');
@@ -67,23 +74,19 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/favorite/{advertisement}', [FavoriteController::class, 'favorite'])->name('favorite');
 
-    Route::get('/landing/editor', [LandingPageCreatorController::class, 'index'])->name('landing.editor');
-    Route::post('/landing/editor/add', [LandingPageCreatorController::class, 'addComponent'])->name('landing.editor.add-component');
-    Route::get('/landing/editor/remove/{id}', [LandingPageCreatorController::class, 'removeComponent'])->name('landing.editor.remove-component');
-    Route::get('/landing/editor/up/{id}', [LandingPageCreatorController::class, 'moveComponentUp'])->name('landing.editor.up-component');
-    Route::get('/landing/editor/down/{id}', [LandingPageCreatorController::class, 'moveComponentDown'])->name('landing.editor.down-component');
+    Route::prefix("/landing/editor")->controller(LandingPageCreatorController::class)->group(function () {
+        Route::get('/', 'index')->name('landing.editor');
+        Route::post('/add', 'addComponent')->name('landing.editor.add-component');
+        Route::get('/remove/{id}', 'removeComponent')->name('landing.editor.remove-component');
+        Route::get('/up/{id}', 'moveComponentUp')->name('landing.editor.up-component');
+        Route::get('/down/{id}', 'moveComponentDown')->name('landing.editor.down-component');
+        Route::post('/colors', 'updateColor')->name('landing.editor.color');
+    });
 
     Route::post('/shorturl/edit', [ShortUrlController::class, 'edit']);
 });
 
-// ToDo remove later
-Route::get('language/{locale}', function ($locale) {
-    app()->setLocale($locale);
-    session()->put('locale', $locale);
-    return redirect()->back();
-});
-
-// In routes/web.php
+Route::post('/language', [LanguageController::class, 'switch'])->name('language.switch');
 Route::post('/search', [SearchController::class, 'search'])->name('search');
 Route::post('/clear-search', [SearchController::class, 'clearSearch'])->name('clear-search-term');
 

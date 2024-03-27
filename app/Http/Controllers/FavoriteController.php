@@ -11,7 +11,6 @@ class FavoriteController extends Controller
     {
         $user = $request->user();
 
-        // Check if the user has already favorited the advertisement
         if ($user->favorites()->where('advertisement_id', $advertisement)->exists()) {
             $user->favorites()->where('advertisement_id', $advertisement)->delete();
         } else {
@@ -19,11 +18,5 @@ class FavoriteController extends Controller
         }
 
         return redirect()->back();
-    }
-
-    function indenfew() {
-        Role::insert([
-            "name" => "admin",
-        ]);
     }
 }

@@ -11,7 +11,6 @@ enum ComponentType : string
 
     public function getLabel(): string
     {
-        // Get translation from lang/en/editor.php
         return Lang::get("editor.{$this->value}");
     }
 }
