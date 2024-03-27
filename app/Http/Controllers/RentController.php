@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\RentItemRequest;
 use App\Models\advertisement\Advertisement;
 use App\Models\advertisement\RentAdvertisement;
@@ -11,22 +12,28 @@ class RentController
 
     public function createagenda($userid, $date)
     {
-        $advertisements = Advertisement::where('user_id', $userid)->get();
+        $advertisements = Advertisement::where('user_id', $userid)->orWhere('bought_user_id', $userid)->get();
         $rentingslist = array();
 
-        foreach($advertisements as $advertisement){
-            if ($advertisement->type == 'rent'){
+        foreach ($advertisements as $advertisement) {
+            if ($advertisement->type == 'rent') {
                 $rents = RentAdvertisement::where('advertisement_id', $advertisement->id)->get();
-                foreach($rents as $rent){
+                foreach ($rents as $rent) {
                     $rentadvertisement = Advertisement::where('id', $rent->advertisement_id)->first();
                     $rentingslist['Verhuur: ' . $rentadvertisement->title] = $rent->from_date;
-                    $rentingslist['Teruggave: '. $rentadvertisement->title] = $rent->to_date;
+                    $rentingslist['Teruggave: ' . $rentadvertisement->title] = $rent->to_date;
                 }
+            }
+
+            if ($advertisement->bought_user_id == $userid) {
+                $rentingslist['Gekocht: ' . $advertisement->title] = $advertisement->expires_at;
             }
         }
         return view('agenda')->with('rentingslist', $rentingslist);
     }
-    public function rentitem(RentItemRequest $request, $advertisementid){
+
+    public function rentitem(RentItemRequest $request, $advertisementid)
+    {
         $fromDate = $request->input('fromDate');
         $toDate = $request->input('toDate');
 
