@@ -31,16 +31,15 @@
             <label for="description" class="block text-white font-semibold">@lang('review.description'):</label>
             <textarea id="description" name="description"
                       class="form-field mt-2 w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
-        </div>
 
-</div>
-<input type="hidden" id="score" name="score" class="form-field">
-{{--<input type="hidden" id="reviewer" name="reviewer" value="{{ $reviewer }}" class="form-field">--}}
-<input type="hidden" name="user_id" value="{{ $userid }}">
-<input type="hidden" name="advertisement_id" value="{{ $adid }}">
-<button onclick="submitReview()" type="submit"
-        class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">@lang('review.submit_review')</button>
-</x-form>
+        </div>
+        <input type="hidden" id="score" name="score" class="form-field">
+        {{--<input type="hidden" id="reviewer" name="reviewer" value="{{ $reviewer }}" class="form-field">--}}
+        <input type="hidden" name="user_id" value="{{ $userid }}">
+        <input type="hidden" name="advertisement_id" value="{{ $adid }}">
+        <button onclick="submitReview()" type="submit"
+                class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">@lang('review.submit_review')</button>
+    </x-form>
 </div>
 <script>
     let rating = 0;
