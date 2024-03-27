@@ -44,11 +44,12 @@
 
                         <div class="-mx-1 -mb-1">
                             <div class="flex flex-wrap" style="margin-bottom: -40px;">
-                                <template x-for="(day, index) in DAYS" :key="index">
+                                <template x-for="(day, index) in days" :key="index">
                                     <div style="width: 14.26%" class="px-2 py-2">
                                         <div
                                             x-text="day"
-                                            class="text-gray-600 text-sm uppercase tracking-wide font-bold text-center">{{ __('agenda.DAY_NAMES.' + day) }}</div>
+                                            class="text-gray-600 text-sm uppercase tracking-wide font-bold text-center">
+                                        </div>
                                     </div>
                                 </template>
                             </div>
@@ -86,8 +87,8 @@
                 </div>
             </div>
             <script>
-                const MONTH_NAMES = {!! json_encode(__('agenda.MONTH_NAMES')) !!};
-                const DAYS = {!! json_encode(__('agenda.DAY_NAMES')) !!};
+                const MONTH_NAMES = Object.values({!! json_encode(__('agenda.MONTH_NAMES')) !!});
+                const DAYS = Object.values({!! json_encode(__('agenda.DAY_NAMES')) !!});
                 const events = [];
 
                 function app() {
@@ -96,10 +97,12 @@
                         year: '',
                         no_of_days: [],
                         blankdays: [],
-                        days: {!! json_encode(__('agenda.DAY_NAMES')) !!},
+                        days: DAYS,
                         events,
 
                         initDate() {
+                            console.log('days' + DAYS);
+
                             let today = new Date();
                             this.month = today.getMonth();
                             this.year = today.getFullYear();
@@ -115,8 +118,6 @@
 
                         getNoOfDays() {
                             let daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
-
-                            // find where to start calendar day of week
                             let dayOfWeek = new Date(this.year, this.month).getDay();
                             let blankdaysArray = [];
                             for ( var i=1; i <= dayOfWeek; i++) {

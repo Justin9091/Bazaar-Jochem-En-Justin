@@ -13,7 +13,6 @@
     <div class="container bg-gray-800 p-3 rounded-lg">
         <h1 class="seller-name text-3xl font-bold mb-4">{{ __('sellersprofile.seller_name', ['name' => $user->name]) }}</h1>
 
-        @if(Auth::check() && Auth::id() == $userid)
             <x-agenda :userid="$user->id"/>
             <div class="p-2 flex justify-between items-center mb-2">
                 <div>
@@ -24,6 +23,7 @@
                     <x-exportcsv :userid="$user->id" />
                 </div>
             </div>
+        @if(Auth::check() && Auth::id() == $userid)
         @endif
 
         <div class="advertisements-grid grid gap-4">
