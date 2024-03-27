@@ -12,6 +12,7 @@
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+
 <div class="bg-slate-100 dark:bg-slate-600 min-h-screen mix-blend-multiply text-black dark:text-white">
     <header class="bg-white dark:bg-slate-700 flex justify-between p-4 shadow-lg px-32">
         <ul class="m-2">
@@ -23,6 +24,8 @@
                 <li><a href="/">{{env("APP_NAME")}}</a></li>
             @endif
         </ul>
+
+        <x-contract></x-contract>
 
         <ul class="flex gap-3 m-2">
             <x-language-switcher/>
@@ -42,6 +45,5 @@
         @yield("main-content")
     </div>
 </div>
-
 </body>
 </html>

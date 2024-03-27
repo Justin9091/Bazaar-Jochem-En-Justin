@@ -23,7 +23,7 @@
                 </div>
             </div>
         @endif
-
+        
         <div class="py-3">
             <h2 class="text-xl font-semibold p-3">{{ __('sellersprofile.offerings') }}</h2>
             <div class="advertisements-grid grid gap-4">
