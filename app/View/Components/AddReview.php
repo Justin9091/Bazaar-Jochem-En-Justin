@@ -12,16 +12,13 @@ class AddReview extends Component
      * @return void
      */
     public $userid;
-    public $reviewer;
     public $adid;
     public function __construct(
         int $userid,
-        string $reviewer = '',
         $adid
     )
     {
         $this->userid = $userid;
-        $this->reviewer = $reviewer;
         $this->adid = $adid;
     }
 

@@ -14,7 +14,7 @@ class AddReviewRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check();
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class AddReviewRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
             'score' => 'required|integer|max:5',
-            'reviewer' => 'required|string|max:255',
+            'name' => Auth::check() ? 'nullable' : 'required|string|max:255',
         ];
     }
 }

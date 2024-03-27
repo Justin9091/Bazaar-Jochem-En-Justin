@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddReviewRequest;
 use Illuminate\Http\Request;
 use App\Models\Review;
+use Illuminate\Support\Facades\Password;
 
 class ReviewController extends Controller
 {
@@ -14,6 +15,13 @@ class ReviewController extends Controller
             $validatedData['advertisement_id'] = null;
         }
 
+        $name = "";
+        if (empty($validatedData['name'])){
+            $name = auth()->user()->name;
+        } else {
+            $name = $validatedData['name'];
+        }
+
         // Create the review
         Review::create([
             'user_id' => $validatedData['user_id'],
@@ -21,7 +29,7 @@ class ReviewController extends Controller
             'title' => $validatedData['title'],
             'description' => $validatedData['description'],
             'score' => $validatedData['score'],
-            'reviewer' => $validatedData['reviewer'],
+            'reviewer' => $name,
             'date' => date('Y-m-d H:i:s')
         ]);
 
