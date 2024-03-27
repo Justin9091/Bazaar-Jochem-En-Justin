@@ -9,6 +9,7 @@ use App\Models\advertisement\Advertisement;
 use App\Models\ShortUrl;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -47,6 +48,20 @@ class SellerController extends Controller
     {
         // Validation
         $validatedData = $request->validated();
+
+        $type = 'rent';
+        if($validatedData['type'] == 'Verkoop'){
+            $type = 'sell';
+        }
+
+        $maxAdverts = 4;
+        $currentAdverts = Auth::user()->advertisements()->where('type', $type)->count();
+
+        if ($currentAdverts >= $maxAdverts) {
+            return redirect()
+                ->back()
+                ->withErrors(__('sellersprofile.max_ads'));
+        }
 
         // Create the advertisement
         $advertisement = new Advertisement();
