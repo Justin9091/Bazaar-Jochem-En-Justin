@@ -26,7 +26,7 @@
         </ul>
 
         <ul class="flex gap-3 m-2">
-            <x-language-switcher/>
+            <x-Utils.language-switcher/>
 
             @if(auth()->check())
                 <li><a href="/logout">@lang('site.logout')</a></li>
