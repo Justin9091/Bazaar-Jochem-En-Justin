@@ -10,5 +10,6 @@ return [
     'title' => 'Titel',
     'description' => 'Beschrijving',
     'submit_review' => 'Review Versturen',
+    'name' => 'Naam',
 ];
 

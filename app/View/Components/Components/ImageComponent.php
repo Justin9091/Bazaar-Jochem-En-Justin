@@ -1,13 +1,13 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Components;
 
 use Illuminate\View\Component;
 
-class TextComponent extends Component
+class ImageComponent extends Component
 {
-    private $text;
-    private $size;
+    private $imagePath;
+    private $description;
 
     /**
      * Create a new component instance.
@@ -18,9 +18,8 @@ class TextComponent extends Component
     {
         $json = json_decode($component->property);
 
-        $this->id = $component->id;
-        $this->text = $json->text;
-        $this->size = $json->size;
+        $this->imagePath = $json->imagePath;
+        $this->description = $json->description;
     }
 
     /**
@@ -30,9 +29,8 @@ class TextComponent extends Component
      */
     public function render()
     {
-        return view('components.landing.text-component')
-            ->with('text', $this->text)
-            ->with('size', $this->size)
-            ->with('id', $this->id);
+        return view('components.landing.image-component')
+            ->with('imagePath', $this->imagePath)
+            ->with('description', $this->description);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Utils;
 
 use App\Models\advertisement\Advertisement;
 use Illuminate\View\Component;

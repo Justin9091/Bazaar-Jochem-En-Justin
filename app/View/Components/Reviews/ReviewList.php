@@ -1,9 +1,8 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Reviews;
 
 use Illuminate\View\Component;
-use App\Models\Review;
 
 class ReviewList extends Component
 {

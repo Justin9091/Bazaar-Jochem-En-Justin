@@ -4,22 +4,12 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class AddReview extends Component
+class Agenda extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
     public $userid;
-    public $adid;
-    public function __construct(
-        int $userid,
-        $adid
-    )
+    public function __construct($userid)
     {
         $this->userid = $userid;
-        $this->adid = $adid;
     }
 
     /**
@@ -29,6 +19,6 @@ class AddReview extends Component
      */
     public function render()
     {
-        return view('components.review.add-review');
+        return view('components.agenda');
     }
 }

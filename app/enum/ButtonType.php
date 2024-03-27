@@ -12,9 +12,9 @@ enum ButtonType : string
 
     public function getClass(): string
     {
-        $standardButton = 'px-4 py-2 rounded-md text-white';
+        $standardButton = 'px-4 py-2 rounded-md text-white font-bold';
 
-        return match ($this->value) {
+        return match ($this) {
             self::RED => $standardButton . ' bg-red-500',
             self::GREEN => $standardButton . ' bg-green-500',
             default => $standardButton . ' bg-blue-500',

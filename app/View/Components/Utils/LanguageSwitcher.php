@@ -1,23 +1,22 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Utils;
 
 use Illuminate\View\Component;
 
-class form extends Component
+class LanguageSwitcher extends Component
 {
+
+    private $languages;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(
-        public $method = "POST",
-        public $action = "",
-    )
+    public function __construct()
     {
-        //
+        $this->languages = ["en" => "English", "nl" => "Dutch"];
     }
 
     /**
@@ -27,8 +26,7 @@ class form extends Component
      */
     public function render()
     {
-        return view('components.form.form')
-            ->with('method', $this->method)
-            ->with('action', $this->action);
+        return view('components.utils.language-switcher')
+            ->with('languages', $this->languages);
     }
 }

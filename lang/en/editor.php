@@ -23,4 +23,5 @@ return [
     'image' => 'Image',
     'font_size' => 'Font Size',
     'description' => 'Description',
+    'color' => 'Color',
 ];
