@@ -1,22 +1,15 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddReviewRequest;
 use Illuminate\Http\Request;
 use App\Models\Review;
 
 class ReviewController extends Controller
 {
-    public function addReview(Request $request)
+    public function addReview(AddReviewRequest $request)
     {
-        // Validate the request data
-        $validatedData = $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'advertisement_id' => 'required|integer',
-            'title' => 'required|string|max:255',
-            'description' => 'required|string|max:1000',
-            'score' => 'required|integer|max:5',
-            'reviewer' => 'required|string|max:255',
-        ]);
+        $validatedData = $request->validated();
         if ($validatedData['advertisement_id'] == 0){
             $validatedData['advertisement_id'] = null;
         }

@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ShortenUrlRequest;
 use App\Models\ShortUrl;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ShortUrlController extends Controller
 {
-    public function edit(Request $request) {
-        // Upsert the short URL, sellerId is the user ID wich is note in the request
+    public function edit(ShortenUrlRequest $request) {
+        $validated = $request->validated();
         $user = Auth::getUser();
 
-        $shortUrl = ShortUrl::updateOrCreate(
+        ShortUrl::updateOrCreate(
             ['seller_id' => $user->id],
-            ['short_url' => $request->short_url]
+            ['short_url' => $validated['short_url']]
         );
 
         return redirect('/account');
