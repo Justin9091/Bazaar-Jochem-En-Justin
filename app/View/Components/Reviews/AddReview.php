@@ -1,19 +1,25 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Reviews;
 
 use Illuminate\View\Component;
 
-class contract extends Component
+class AddReview extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public $userid;
+    public $adid;
+    public function __construct(
+        int $userid,
+        $adid
+    )
     {
-        //
+        $this->userid = $userid;
+        $this->adid = $adid;
     }
 
     /**
@@ -23,6 +29,6 @@ class contract extends Component
      */
     public function render()
     {
-        return view('components.contract');
+        return view('components.review.add-review');
     }
 }

@@ -23,4 +23,5 @@ return [
     'image' => 'Afbeelding',
     'font_size' => 'Lettergrootte',
     'description' => 'Beschrijving',
+    'color' => 'Kleur',
 ];

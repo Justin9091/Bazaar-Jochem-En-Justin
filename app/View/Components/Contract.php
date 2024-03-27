@@ -4,12 +4,16 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class agenda extends Component
+class Contract extends Component
 {
-    public $userid;
-    public function __construct($userid)
+    /**
+     * Create a new component instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $this->userid = $userid;
+        //
     }
 
     /**
@@ -19,6 +23,6 @@ class agenda extends Component
      */
     public function render()
     {
-        return view('components.agenda');
+        return view('components.contract');
     }
 }

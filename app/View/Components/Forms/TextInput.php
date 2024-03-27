@@ -1,11 +1,10 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Forms;
 
-use App\enum\ButtonType;
 use Illuminate\View\Component;
 
-class Button extends Component
+class TextInput extends Component
 {
     /**
      * Create a new component instance.
@@ -13,7 +12,10 @@ class Button extends Component
      * @return void
      */
     public function __construct(
-        public ButtonType $type = ButtonType::BLUE,
+        public $placeholder,
+        public $name,
+        public $type = 'text',
+        public $value = "",
     )
     {
         //
@@ -26,8 +28,6 @@ class Button extends Component
      */
     public function render()
     {
-        return view('components.button')
-            ->with('type', $this->type->getClass())
-            ->with('class', $this->type->getClass());
+        return view('components.form.text-input');
     }
 }

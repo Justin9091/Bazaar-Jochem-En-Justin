@@ -1,8 +1,7 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Advertisements;
 
-use App\Models\advertisement\Advertisement;
 use Illuminate\View\Component;
 
 class AdCard extends Component

@@ -10,4 +10,5 @@ return [
     'title' => 'Title',
     'description' => 'Description',
     'submit_review' => 'Submit Review',
+    'name' => 'Name',
 ];

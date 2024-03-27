@@ -19,9 +19,9 @@
 
                     <div class="">
                         @if($component->type == 'text-component')
-                            <x-text-component :component="$component"/>
+                            <x-Components.text-component :component="$component"/>
                         @elseif($component->type == 'image-component')
-                            <x-image-component :component="$component"/>
+                            <x-Components.image-component :component="$component"/>
                         @endif
                     </div>
                 </div>
@@ -79,7 +79,7 @@
 
             <div class="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-lg">
 
-                <h1 class="text-3xl text-center font-bold p-2">{{@__('editor.colors')}}</h1>
+                <h1 class="text-3xl text-center font-bold p-2">{{@__('editor.color')}}</h1>
 
                 <form action="/landing/editor/colors" method="POST">
                     @csrf

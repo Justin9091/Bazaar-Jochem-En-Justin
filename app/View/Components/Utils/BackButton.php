@@ -1,22 +1,17 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Utils;
 
 use Illuminate\View\Component;
 
-class TextInput extends Component
+class BackButton extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(
-        public $placeholder,
-        public $name,
-        public $type = 'text',
-        public $value = "",
-    )
+    public function __construct()
     {
         //
     }
@@ -28,6 +23,6 @@ class TextInput extends Component
      */
     public function render()
     {
-        return view('components.form.text-input');
+        return view('components.utils.backbutton');
     }
 }
