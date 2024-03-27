@@ -9,33 +9,6 @@ use Illuminate\Http\UploadedFile;
 
 class CSVController
 {
-    public function downloadContract()
-    {
-        $filePath = storage_path('app\public\contracts\contract.pdf');
-        $fileName = 'contract.pdf';
-        $headers = ['Content-Type: application/pdf'];
-
-        return Response::download($filePath, $fileName, $headers);
-    }
-    public function uploadContract(Request $request)
-    {
-        $request->validate([
-            'file' => 'required|mimes:pdf',
-        ]);
-
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $file->storeAs('public/contracts', $fileName);
-
-            return back()->with('success', 'File uploaded successfully.');
-        } else {
-            return back()->with('error', 'No file uploaded.');
-        }
-    }
-
-
-
     public function createcsv($userid){
         $advertisements = Advertisement::where('user_id', $userid)->get();
         $data = array(
