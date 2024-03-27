@@ -59,15 +59,26 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserFavorite::class, 'user_id');
     }
-    public function customer()
+
+    public function hasAnyRoles(): bool
+    {
+        return $this->roles()->exists();
+    }
+
+    public
+    function customer()
     {
         return $this->hasOne(Customer::class);
     }
-    public function advertisements()
+
+    public
+    function advertisements()
     {
         return $this->hasMany(Advertisement::class);
     }
-    public function reviews()
+
+    public
+    function reviews()
     {
         return $this->hasMany(Review::class);
     }

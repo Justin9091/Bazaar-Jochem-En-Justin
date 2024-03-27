@@ -10,7 +10,7 @@
         <div id="popup" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
             <div class="bg-gray-600 rounded-lg p-8 relative">
                 <span class="bg-red-500 rounded-full text-white absolute top-0 right-0 cursor-pointer w-8 h-8 flex items-center justify-center" onclick="closePopup()">&times;</span>
-                <x-form id="rentForm" action="{{ route('rentitem', ['id' => $ad->id]) }}" method="POST">
+                <x-form id="rentForm" action="{{ route('advertisement.rent', ['id' => $ad->id]) }}" method="POST">
                     <div class="mb-4">
                         <label for="fromDate" class="block">@lang('ad.from_date'):</label>
                         <input type="date" id="fromDate" name="fromDate" required class="block w-full rounded-md bg-gray-600 border-gray-900">

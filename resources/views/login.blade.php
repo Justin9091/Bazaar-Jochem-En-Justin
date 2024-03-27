@@ -3,7 +3,7 @@
 @section('page-title', 'Login')
 
 @section("main-content")
-    <x-form action="/login" method="post">
+    <x-form action="{{action('login.store')}}" method="post">
         <x-text-input placeholder="{{__('login.email')}}" type="email" name="email"/>
         <x-text-input placeholder="{{__('login.password')}}" type="password" name="password"/>
 

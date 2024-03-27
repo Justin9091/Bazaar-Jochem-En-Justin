@@ -3,7 +3,7 @@
 @section('page-title', __('registration.page_title'))
 
 @section('main-content')
-    <x-form action="/register" method="post">
+    <x-form action="{{route('register.store')}}" method="post">
 
         <div class="flex">
             <x-text-input placeholder="{{ __('registration.firstname') }}" type="text" name="first-name"/>

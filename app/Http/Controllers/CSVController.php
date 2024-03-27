@@ -62,7 +62,6 @@ class CSVController
             return redirect()->route('sellerprofile', ['userId' => $userid]);
         }
 
-        // Handle case if no file was uploaded or any other error occurred
         return response()->json(['error' => 'Failed to upload or process CSV file.'], 400);
     }
 }
