@@ -25,8 +25,6 @@
             @endif
         </ul>
 
-        <x-contract></x-contract>
-
         <ul class="flex gap-3 m-2">
             <x-language-switcher/>
 

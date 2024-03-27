@@ -9,7 +9,6 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LandingPageCreatorController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ShortUrlController;
@@ -18,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CSVController;
-use \App\Http\Controllers\RentController;
+use App\Http\Controllers\RentController;
+use App\Http\Controllers\ContractController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,8 +49,9 @@ Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add_re
 
 Route::get('/seller/{userId}/createqr', [SellerController::class, 'createqr'])->name('sellers.createqr');
 
-Route::get('/download-contract', [CSVController::class, 'downloadContract'])->name('download.contract');
-Route::post('/upload-contract', [CSVController::class, 'uploadContract'])->name('upload.contract');
+Route::get('/contract/download-contract', [ContractController::class, 'downloadContract'])->name('download.contract');
+Route::post('/contract/upload-contract', [ContractController::class, 'uploadContract'])->name('upload.contract');
+Route::get('/contract',[ContractController::class, 'index'])->name('contract.index');
 
 
 Route::post('/image/{folder?}/{name?}', [ImageController::class, 'store'])->name('image');
