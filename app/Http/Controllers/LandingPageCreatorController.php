@@ -112,6 +112,14 @@ class LandingPageCreatorController extends Controller
         return redirect()->route('landing.editor');
     }
 
+    public function updateColor(Request $request) {
+        $user = Auth::user();
+        $user->color = $request->input('color');
+        $user->save();
+
+        return redirect()->route('landing.editor');
+    }
+
     private function fixOrder()
     {
         $components = Component::where('user_id', Auth::id())->orderBy('order')->get();

@@ -86,13 +86,8 @@
 
                     <div class="flex flex-col gap-2">
                         <div class="">
-                            <p>{{@__('editor.background_color')}}</p>
-                            <input name="text_color" type="color" class="p-0 m-0 w-10 h-10 outline-none border-0">
-                        </div>
-
-                        <div class="p-0 m-0">
-                            <p>{{@__('editor.text_color')}}</p>
-                            <input name="text_color" type="color" class="p-0 m-0 w-10 h-10 outline-none border-0">
+                            <p>{{@__('editor.color')}}</p>
+                            <input name="color" type="color" class="p-0 m-0 w-10 h-10 outline-none border-0">
                         </div>
                     </div>
 

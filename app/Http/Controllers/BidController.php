@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BidRequest;
 use App\Models\advertisement\Advertisement;
 use Illuminate\Http\Request;
 
 class BidController extends Controller
 {
-    function bid(Request $request, $advertisementId) {
+    function bid(BidRequest $request, $advertisementId) {
         $advertisement = Advertisement::find($advertisementId);
 
         $hightesBid = $advertisement->bids->max('bid');

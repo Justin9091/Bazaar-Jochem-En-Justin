@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AdvertisementController extends Controller
 {
-    function Show(int $id){
+    function show(int $id){
         $ad = Advertisement::find($id);
 
         return view('advertisement')

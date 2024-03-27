@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\CreateAdvertisementRequest;
 use App\Models\Component;
 use App\Models\advertisement\Advertisement;
 use App\Models\ShortUrl;
@@ -34,22 +35,18 @@ class SellerController extends Controller
         }
 
         return view('sellerprofile', compact('user', 'components'))
-            ->with("userid", $userId);
+            ->with("userid", $userId)
+            ->with("logo", $user->customLogo);
     }
 
     public function showaddadvertisementform($userId)
     {
         return view('addadvertisement', ['userId' => $userId]);
     }
-    public function createadvertisement(Request $request, $userId)
+    public function createadvertisement(CreateAdvertisementRequest $request, $userId)
     {
         // Validation
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'type' => 'required|in:Huur,Verkoop',
-            'expiration' => 'required|date',
-        ]);
+        $validatedData = $request->validated();
 
         // Create the advertisement
         $advertisement = new Advertisement();

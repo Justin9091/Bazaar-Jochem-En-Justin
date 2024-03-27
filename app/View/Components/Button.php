@@ -2,24 +2,21 @@
 
 namespace App\View\Components;
 
+use App\enum\ButtonType;
 use Illuminate\View\Component;
 
-class AddReview extends Component
+class Button extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public $userid;
-    public $adid;
     public function __construct(
-        int $userid,
-        $adid
+        public ButtonType $type = ButtonType::BLUE,
     )
     {
-        $this->userid = $userid;
-        $this->adid = $adid;
+        //
     }
 
     /**
@@ -29,6 +26,8 @@ class AddReview extends Component
      */
     public function render()
     {
-        return view('components.review.add-review');
+        return view('components.button')
+            ->with('type', $this->type->getClass())
+            ->with('class', $this->type->getClass());
     }
 }
