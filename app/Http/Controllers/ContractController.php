@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Storage;
 
 class ContractController extends Controller
 {
-    public function index()
+    public function index($userid)
     {
-        $contracts = Storage::files('public/contracts');
+        $pattern = storage_path("app/public/contracts/*contract-$userid.pdf");
+        $contracts = glob($pattern);
 
-        return view('contract', compact('contracts'));
+        return view('contract', compact('contracts', 'userid'));
     }
+
     public function downloadContract()
     {
         $filePath = storage_path('app\public\contracts\contract.pdf');
