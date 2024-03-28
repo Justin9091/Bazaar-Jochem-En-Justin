@@ -1,9 +1,8 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use App\Http\Controllers\SellerController;
-use App\Models\advertisement\Advertisement;
 use App\Models\Component;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;

@@ -1,14 +1,15 @@
 <?php
 
-namespace Tests\Unit\Controllers;
+namespace Tests\Feature;
 
 use App\Http\Controllers\ShortUrlController;
+use App\Http\Requests\ShortenUrlRequest;
 use App\Models\ShortUrl;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
-use App\Http\Requests\ShortenUrlRequest;
+
 class ShortUrlControllerTest extends TestCase
 {
     use RefreshDatabase; // This trait resets the database after each test

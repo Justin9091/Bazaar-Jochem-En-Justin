@@ -1,10 +1,10 @@
 <?php
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use App\Models\advertisement\Advertisement;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 use Illuminate\Support\Facades\Session;
+use Tests\TestCase;
 
 class SearchTest extends TestCase
 {

@@ -1,9 +1,11 @@
 <?php
-use App\Models\User;
+
+namespace Tests\Feature;
+
 use App\Models\advertisement\Advertisement;
 use App\Models\advertisement\RentAdvertisement;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Response;
 use Tests\TestCase;
 

@@ -1,8 +1,10 @@
 <?php
+
+namespace Tests\Feature;
+
 use App\Models\advertisement\Advertisement;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Http\Response;
 use Tests\TestCase;
 
 class RelatedAdControllerTest extends TestCase
@@ -21,7 +23,7 @@ class RelatedAdControllerTest extends TestCase
         $relatedAdvertisement = Advertisement::factory()->create();
 
         // Send POST request to add related ad
-        $response = $this->post('/related/add/' . $baseAdvertisement->id,[
+        $response = $this->post('/related/add/' . $baseAdvertisement->id, [
             'related_ad_id' => $relatedAdvertisement->id,
         ]);
 

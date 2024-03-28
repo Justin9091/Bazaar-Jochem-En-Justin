@@ -5,12 +5,11 @@ namespace Tests\Feature;
 use App\Models\advertisement\Advertisement;
 use App\Models\advertisement\RentAdvertisement;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
-use Carbon\Carbon;
 
 class RetourControllerTest extends TestCase
 {

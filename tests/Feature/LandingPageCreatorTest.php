@@ -2,14 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\enum\ComponentType;
 use App\Models\Component;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class LandingPageCreatorControllerTest extends TestCase

@@ -29,8 +29,6 @@ class RegisterController extends Controller
             'api_token' => $apitoken,
         ]);
 
-        error_log("Aids");
-
         if(isset($validated["place-ads"]) && $validated['place-ads'] == "on") {
             $role = Role::all()->where('name', $validated['account-type'])->first();
 
