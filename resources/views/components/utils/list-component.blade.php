@@ -11,7 +11,7 @@
 
         @if(session()->has('search'))
             <x-Form.form action="/clear-search" method="POST">
-                <x-submit-button value="{{ __('components.clear_search_button') }}" />
+                <x-form.submit-button value="{{ __('components.clear_search_button') }}" />
             </x-Form.form>
         @endif
     </header>

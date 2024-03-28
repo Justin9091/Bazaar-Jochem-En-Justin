@@ -35,7 +35,7 @@ class ListComponent extends Component
         $path = parse_url($currentUrl, PHP_URL_PATH);
 
         // If the current page is not the same as the page that was searched on clear the search term
-        if ($searchedPage && $searchedPage !== $path) {
+        if ($searchedPage && $searchedPage != '/' && $searchedPage !== $path) {
             session()->forget('search');
             session()->forget('page');
             session()->save();
