@@ -1,18 +1,18 @@
 <!-- In resources/views/components/utils/list-component.blade.php -->
 <div class="mx-24">
     <header>
-        <x-form action="{{ 'search' }}" method="POST">
+        <x-Form.form action="{{ 'search' }}" method="POST">
 
-            <x-text-input type="text" placeholder="{{ __('components.search_placeholder') }}" name="search-term"
+            <x-Form.text-input type="text" placeholder="{{ __('components.search_placeholder') }}" name="search-term"
                           class="p-1 m-1 rounded-lg border border-black" value="{{ htmlspecialchars(session()->get('search')) }}"  />
 
-            <x-submit-button value="{{ __('components.search_button') }}" />
-        </x-form>
+            <x-Form.submit-button value="{{ __('components.search_button') }}" />
+        </x-Form.form>
 
         @if(session()->has('search'))
-            <x-form action="/clear-search" method="POST">
-                <x-submit-button value="{{ __('components.clear_search_button') }}" />
-            </x-form>
+            <x-Form.form action="/clear-search" method="POST">
+                <x-Form.submit-button value="{{ __('components.clear_search_button') }}" />
+            </x-Form.form>
         @endif
     </header>
 
@@ -24,7 +24,7 @@
         <div>
             @foreach($advertisements as $ad)
                 <div class="ad-card">
-                    <x-ad-card :ad="$ad"/>
+                    <x-Advertisements.ad-card :ad="$ad"/>
                 </div>
             @endforeach
         </div>
