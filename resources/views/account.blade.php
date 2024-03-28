@@ -32,7 +32,7 @@
     <x-forms.form action="/shorturl/edit" method="POST">
         <x-forms.text-input name="short_url" placeholder="{{ __('account.new_url') }}"/>
 
-        <x-utils.submit-button/>
+        <x-submit-button/>
     </x-forms.form>
 
     <div class="">
@@ -48,6 +48,6 @@
 
     <h1 class="text-3xl">{{ __('account.favorites') }}</h1>
 
-    <x-list-component :advertisements="$favoriteAds"/>
+    <x-utils.list-component :advertisements="$favoriteAds"/>
 
 @endsection
