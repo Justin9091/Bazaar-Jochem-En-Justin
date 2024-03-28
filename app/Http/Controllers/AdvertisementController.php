@@ -12,9 +12,12 @@ class AdvertisementController extends Controller
     function show(int $id)
     {
         $ad = Advertisement::find($id);
+        $related = $ad->relatedAds()->get();
 
         return view('advertisement')
-            ->with('ad', $ad);
+            ->with('ad', $ad)
+            ->with('relatedAds', $related)
+            ->with('allAds', Advertisement::where('user_id', Auth::id())->get());
     }
 
     function returnItem()
