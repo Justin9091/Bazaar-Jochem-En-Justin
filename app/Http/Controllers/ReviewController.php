@@ -15,11 +15,11 @@ class ReviewController extends Controller
             $validatedData['advertisement_id'] = null;
         }
 
-        $name = "";
+        $reviewer = "";
         if (empty($validatedData['name'])){
-            $name = auth()->user()->name;
+            $reviewer = auth()->user()->name;
         } else {
-            $name = $validatedData['name'];
+            $reviewer = $validatedData['name'];
         }
 
         // Create the reviews
@@ -29,7 +29,7 @@ class ReviewController extends Controller
             'title' => $validatedData['title'],
             'description' => $validatedData['description'],
             'score' => $validatedData['score'],
-            'reviewer' => $name,
+            'reviewer' => $reviewer,
             'date' => date('Y-m-d H:i:s')
         ]);
 

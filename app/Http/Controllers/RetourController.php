@@ -47,7 +47,7 @@ class RetourController extends Controller
         $rentAdvertisement->image = $req->file('image')->hashName();
         $rentAdvertisement->save();
 
-        return redirect()->route('sellerprofile');
+        return redirect()->route('sellerprofile', Auth::id());
     }
 
     private function updateDamage(RentAdvertisement $ad)

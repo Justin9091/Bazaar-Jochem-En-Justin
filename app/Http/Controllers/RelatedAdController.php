@@ -13,6 +13,7 @@ class RelatedAdController extends Controller
 
         $baseAdvert->relatedAds()->attach($relatedAdvert);
 
+        error_log('kip');
         return redirect()->back();
     }
 
