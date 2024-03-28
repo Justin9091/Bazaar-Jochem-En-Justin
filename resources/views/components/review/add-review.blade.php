@@ -1,6 +1,6 @@
 <div class="bg-white dark:bg-gray-800 rounded-lg p-4 mb-4 border border-black">
     <h2 class="text-xl font-semibold mb-4">@lang('review.add_review')</h2>
-    <x-form action="{{ route('add_review') }}" method="post" class="form-container">
+    <x-forms.form action="{{ route('add_review') }}" method="post" class="form-container">
         <div class="mb-4">
             <label for="score" class="block text-white font-semibold">@lang('review.score'):</label>
             <div class="flex items-center mt-2">
@@ -39,7 +39,7 @@
         <input type="hidden" name="advertisement_id" value="{{ $adid }}">
         <button onclick="submitReview()" type="submit"
                 class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">@lang('review.submit_review')</button>
-    </x-form>
+    </x-forms.form>
 </div>
 <script>
     let rating = 0;

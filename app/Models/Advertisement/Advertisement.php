@@ -6,7 +6,7 @@ use App\Models\Bid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Review;
-
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 
 class Advertisement extends Model
@@ -28,6 +28,12 @@ class Advertisement extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function relatedAds() : BelongsToMany
+    {
+        return $this->belongsToMany(Advertisement::class, 'related_ads', 'advertisement_id', 'related_ad_id');
+    }
+
     public function getReviews($advertisementId, $userId)
     {
         return Review::where('advertisement_id', $advertisementId)

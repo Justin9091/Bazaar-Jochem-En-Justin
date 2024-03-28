@@ -29,11 +29,11 @@
     <h1 class="text-3xl">{{ __('account.short_url') }}</h1>
     <p>{{ __('account.enter_personal_ad_url') }}</p>
 
-    <x-form action="/shorturl/edit" method="POST">
-        <x-text-input name="short_url" placeholder="{{ __('account.new_url') }}"/>
+    <x-forms.form action="/shorturl/edit" method="POST">
+        <x-forms.text-input name="short_url" placeholder="{{ __('account.new_url') }}"/>
 
-        <x-submit-button/>
-    </x-form>
+        <x-utils.submit-button/>
+    </x-forms.form>
 
     <div class="">
         <h2 class="text-2xl">QR code</h2>

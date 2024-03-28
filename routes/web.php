@@ -10,6 +10,8 @@ use App\Http\Controllers\LandingPageCreatorController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RelatedAdController;
+use App\Http\Controllers\RetourController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ShortUrlController;
 use App\Http\Middleware\CanPlaceAdvertisements;
@@ -83,6 +85,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/down/{id}', 'moveComponentDown')->name('landing.editor.down-component');
         Route::post('/colors', 'updateColor')->name('landing.editor.color');
     });
+
+    Route::prefix('/related')->controller(RelatedAdController::class)->group(function () {
+        Route::post('/add/{baseAdvertisementId}', 'addRelatedAd')->name('related.add');
+        Route::get('/remove/{baseAdvertisementId}/{relatedAdvertisementId}', 'removeRelatedAd')->name('related.remove');
+    });
+
+    Route::get('/return', [AdvertisementController::class, 'returnItem'])->name('return');
+    Route::post('/return', [AdvertisementController::class, 'storeReturnedItem'])->name('return.store');
+    Route::post('/return/list', [RetourController::class, 'show'])->name('return.list');
 
     Route::post('/shorturl/edit', [ShortUrlController::class, 'edit']);
 });
