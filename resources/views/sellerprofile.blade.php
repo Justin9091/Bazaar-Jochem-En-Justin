@@ -21,6 +21,26 @@
                     <x-exportcsv :userid="$user->id"/>
                 </div>
             </div>
+
+            <div class="">
+                <h2 class="text-xl font-bold">{{__('sellersprofile.return_item_title')}}</h2>
+                <a href="/return">
+                    <x-utils.button
+                        :type="\App\enum\ButtonType::BLUE">{{__('sellersprofile.return_item_button')}}</x-utils.button>
+                </a>
+
+                @if (!$user->advertisements->isEmpty())
+                    <x-form.form method="POST" action="/return/list">
+                        <select name="advertisement" id="" class="p-2 bg-white rounded-lg text-black">
+                            @foreach ($user->advertisements as $advertisement)
+                                <option value="{{$advertisement->id}}">{{$advertisement->title}}</option>
+                            @endforeach
+                        </select>
+
+                        <x-submitbutton value="{{__('sellersprofile.return_item_list')}}" />
+                    </x-form.form>
+                @endif
+            </div>
         @endif
 
         <div class="py-3">

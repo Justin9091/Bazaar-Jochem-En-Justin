@@ -4,7 +4,7 @@
         <x-Form.form action="{{ 'search' }}" method="POST">
 
             <x-Form.text-input type="text" placeholder="{{ __('components.search_placeholder') }}" name="search-term"
-                               class="p-1 m-1 rounded-lg border border-black" value="{{ htmlspecialchars(session()->get('search')) }}"  />
+                          class="p-1 m-1 rounded-lg border border-black" value="{{ htmlspecialchars(session()->get('search')) }}"  />
 
             <x-Form.submit-button value="{{ __('components.search_button') }}" />
         </x-Form.form>

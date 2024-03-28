@@ -2,6 +2,7 @@
 
 namespace App\enum;
 
+use App\Models\Component;
 use Illuminate\Support\Facades\Lang;
 
 enum ComponentType : string

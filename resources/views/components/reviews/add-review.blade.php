@@ -1,8 +1,8 @@
 <div class="bg-white dark:bg-gray-800 rounded-lg p-4 mb-4 border border-black">
-    <h2 class="text-xl font-semibold mb-4">@lang('reviews.add_review')</h2>
-    <x-form.form action="{{ route('add_review') }}" method="post" class="form-container">
+    <h2 class="text-xl font-semibold mb-4">@lang('review.add_review')</h2>
+    <x-forms.form action="{{ route('add_review') }}" method="post" class="form-container">
         <div class="mb-4">
-            <label for="score" class="block text-white font-semibold">@lang('reviews.score'):</label>
+            <label for="score" class="block text-white font-semibold">@lang('review.score'):</label>
             <div class="flex items-center mt-2">
                 @for ($i = 1; $i <= 5; $i++)
                     <svg id="star{{$i}}" onclick="setRating({{$i}})"
@@ -17,18 +17,18 @@
 
         @if(!Auth::check())
             <div class="mb-4">
-                <label for="name" class="block text-white font-semibold">@lang('reviews.name'):</label>
+                <label for="name" class="block text-white font-semibold">@lang('review.name'):</label>
                 <input type="text" id="name" name="name"
                        class="form-field mt-2 w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
             </div>
         @endif
         <div class="mb-4">
-            <label for="title" class="block text-white font-semibold">@lang('reviews.title'):</label>
+            <label for="title" class="block text-white font-semibold">@lang('review.title'):</label>
             <input type="text" id="title" name="title"
                    class="form-field mt-2 w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
         </div>
         <div class="mb-4">
-            <label for="description" class="block text-white font-semibold">@lang('reviews.description'):</label>
+            <label for="description" class="block text-white font-semibold">@lang('review.description'):</label>
             <textarea id="description" name="description"
                       class="form-field mt-2 w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
 
@@ -38,8 +38,8 @@
         <input type="hidden" name="user_id" value="{{ $userid }}">
         <input type="hidden" name="advertisement_id" value="{{ $adid }}">
         <button onclick="submitReview()" type="submit"
-                class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">@lang('reviews.submit_review')</button>
-    </x-form.form>
+                class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">@lang('review.submit_review')</button>
+    </x-forms.form>
 </div>
 <script>
     let rating = 0;
