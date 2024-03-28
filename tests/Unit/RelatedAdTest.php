@@ -1,5 +1,6 @@
 <?php
 use App\Models\advertisement\Advertisement;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Response;
 use Tests\TestCase;
@@ -10,6 +11,9 @@ class RelatedAdControllerTest extends TestCase
 
     public function testAddRelatedAd()
     {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+
         // Create base advertisement
         $baseAdvertisement = Advertisement::factory()->create();
 
@@ -33,6 +37,9 @@ class RelatedAdControllerTest extends TestCase
 
     public function testRemoveRelatedAd()
     {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+
         // Create base advertisement
         $baseAdvertisement = Advertisement::factory()->create();
 

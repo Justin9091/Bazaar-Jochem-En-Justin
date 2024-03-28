@@ -14,7 +14,7 @@ class BidController extends Controller
             $query->where('expires_at', '>', now());
         })->get();
 
-        if($biddings->count() > 4) {
+        if($biddings->count() >= 4) {
             return redirect()->back()->withErrors(["bid" => 'You already have 4 biddings placed!']);
         }
 

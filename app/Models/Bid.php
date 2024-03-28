@@ -10,7 +10,7 @@ class Bid extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'bid'];
+    protected $fillable = ['user_id', 'bid', 'advertisement_id'];
 
     public function user()
     {
