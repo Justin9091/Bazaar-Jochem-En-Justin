@@ -51,9 +51,9 @@ Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add_re
 
 Route::get('/seller/{userId}/createqr', [SellerController::class, 'createqr'])->name('sellers.createqr');
 
-Route::get('/contract/download-contract', [ContractController::class, 'downloadContract'])->name('download.contract');
-Route::post('/contract/upload-contract', [ContractController::class, 'uploadContract'])->name('upload.contract');
-Route::get('/contract',[ContractController::class, 'index'])->name('contract.index');
+Route::get('/{userid}/contract/download-contract', [ContractController::class, 'downloadContract'])->name('download.contract');
+Route::post('/{userid}/contract/upload-contract', [ContractController::class, 'uploadContract'])->name('upload.contract');
+Route::get('/{userid}/contract',[ContractController::class, 'index'])->name('contract.index');
 
 
 Route::post('/image/{folder?}/{name?}', [ImageController::class, 'store'])->name('image');
