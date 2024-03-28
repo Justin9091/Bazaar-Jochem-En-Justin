@@ -19,7 +19,8 @@
             @if(isset($logo))
                 <li><a href="/" class="">
                         <img class="h-16" src="{{$logo}}" alt="Logo">
-                    </a></li>
+                    </a>
+                </li>
             @else
                 <li><a href="/">{{env("APP_NAME")}}</a></li>
             @endif

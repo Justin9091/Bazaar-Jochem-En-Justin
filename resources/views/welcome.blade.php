@@ -3,6 +3,6 @@
 @section('page-title', "Home")
 
 @section("main-content")
-    <x-list-component :advertisements="$advertisements"/>
+    <x-Utils.list-component :advertisements="$advertisements"/>
 @endsection
 
