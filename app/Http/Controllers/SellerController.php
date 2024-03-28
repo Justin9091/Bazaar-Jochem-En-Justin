@@ -36,7 +36,7 @@ class SellerController extends Controller
 
         return view('sellerprofile', compact('user', 'components'))
             ->with("userid", $userId)
-            ->with("logo", $user->customLogo);
+            ->with('logo', $user->customLogo);
     }
 
     public function showaddadvertisementform($userId)

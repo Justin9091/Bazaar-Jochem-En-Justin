@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'reviews' => 'Reviews',
+    'reviews' => 'reviews',
     'no_reviews' => 'No reviews for this seller',
     'posted_on' => 'Posted on',
     'rating' => 'Rating',

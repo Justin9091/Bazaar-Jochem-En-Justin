@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section("main-content")
-
     <div class="container bg-gray-800 p-3 rounded-lg">
         @foreach($components as $component)
             @if($component->type == 'text-component')
@@ -38,7 +37,7 @@
             </div>
         </div>
 
-        <x-Reviews.review-list :userid="$user->id" :adid="0" :reviews="$user->reviews"/>
+        <x-reviews.review-list :userid="$user->id" :adid="0" :reviews="$user->reviews"/>
 
         <x-utils.backbutton class="absolute bottom-8 left-8"></x-utils.backbutton>
     </div>

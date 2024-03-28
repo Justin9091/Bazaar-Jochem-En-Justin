@@ -31,6 +31,6 @@ class ReviewList extends Component
      */
     public function render()
     {
-        return view('components.review.review-list');
+        return view('components.reviews.review-list');
     }
 }

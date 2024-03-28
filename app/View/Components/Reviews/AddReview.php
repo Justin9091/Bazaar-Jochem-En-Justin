@@ -29,6 +29,6 @@ class AddReview extends Component
      */
     public function render()
     {
-        return view('components.review.add-review');
+        return view('components.reviews.add-review');
     }
 }

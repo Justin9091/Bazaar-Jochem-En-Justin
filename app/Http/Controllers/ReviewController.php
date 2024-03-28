@@ -22,7 +22,7 @@ class ReviewController extends Controller
             $name = $validatedData['name'];
         }
 
-        // Create the review
+        // Create the reviews
         Review::create([
             'user_id' => $validatedData['user_id'],
             'advertisement_id' => $validatedData['advertisement_id'],

@@ -45,7 +45,7 @@ Route::get('/advertisement/{id}/rentitem', [RentController::class, 'rentitem'])-
 
 
 Route::get('/seller/{userId}', [SellerController::class, 'show'])->name('sellerprofile');
-Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add_review');
+Route::post('/add-reviews', [ReviewController::class, 'addReview'])->name('add_review');
 
 Route::get('/seller/{userId}/createqr', [SellerController::class, 'createqr'])->name('sellers.createqr');
 

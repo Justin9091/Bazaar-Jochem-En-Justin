@@ -1,7 +1,7 @@
 <article class="bg-white dark:bg-gray-800 rounded-lg p-4 mb-4 border border-black">
     <div class="flex items-center mb-4">
         <div class="font-medium dark:text-white">
-            <p>{{ $reviewer }}<time class="block text-sm text-gray-500 dark:text-gray-400">@lang('review.posted_on') {{ $date }}</time></p>
+            <p>{{ $reviewer }}<time class="block text-sm text-gray-500 dark:text-gray-400">@lang('reviews.posted_on') {{ $date }}</time></p>
         </div>
     </div>
     <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
