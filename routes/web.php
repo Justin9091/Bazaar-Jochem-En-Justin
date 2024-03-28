@@ -91,8 +91,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/remove/{baseAdvertisementId}/{relatedAdvertisementId}', 'removeRelatedAd')->name('related.remove');
     });
 
-    Route::get('/return', [AdvertisementController::class, 'returnItem'])->name('return');
-    Route::post('/return', [AdvertisementController::class, 'storeReturnedItem'])->name('return.store');
+    Route::get('/return', [RetourController::class, 'returnItem'])->name('return');
+    Route::post('/return', [RetourController::class, 'storeReturnedItem'])->name('return.store');
     Route::post('/return/list', [RetourController::class, 'show'])->name('return.list');
 
     Route::post('/shorturl/edit', [ShortUrlController::class, 'edit']);

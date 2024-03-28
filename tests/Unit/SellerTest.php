@@ -17,15 +17,8 @@ class SellerTest extends TestCase
 
     public function testShowMethodReturnsCorrectViewWithData()
     {
-        $userId = 1;
-
-        // Mock User, Advertisement, and Component data
-        $user = User::create([
-            'id' => $userId,
-            'name' => 'Test User',
-            'email' => 'test@test.nl',
-            'password' => 'test',
-        ]);
+        $user = User::factory()->create();
+        $userId = $user->id;
 
         // Create a single Component instance for testing
         $component = Component::create([
@@ -58,14 +51,11 @@ class SellerTest extends TestCase
 
     public function testCreateAdvertisementMethodCreatesAdvertisementAndRedirects()
     {
-        $userId = 1;
 
-        $user = User::create([
-            'id' => $userId,
-            'name' => 'Test User',
-            'email' => 'test@test.nl',
-            'password' => 'test',
-        ]);
+        $user = User::factory()->create();
+        $userId = $user->id;
+
+        $this->actingAs($user);
 
         // Mock the validated data
         $expirationDate = now()->addDays(30);

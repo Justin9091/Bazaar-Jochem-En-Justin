@@ -15,7 +15,6 @@ class AccountController extends Controller
         $user = Auth::getUser();
         $favorites = $user->favorites()->get();
 
-        // Loop through the favorites and get the ad
         foreach ($favorites as $favorite) {
             $favorite->ad = $favorite->advertisement;
         }
