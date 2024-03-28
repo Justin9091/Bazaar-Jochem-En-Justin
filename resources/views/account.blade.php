@@ -15,7 +15,7 @@
             @csrf
             <input type="file" name="image" required>
 
-            <x-submit-button value="Upload"/>
+            <x-form.submit-button value="Upload"/>
         </form>
 
         @if(isset($logo))
@@ -29,11 +29,11 @@
     <h1 class="text-3xl">{{ __('account.short_url') }}</h1>
     <p>{{ __('account.enter_personal_ad_url') }}</p>
 
-    <x-forms.form action="/shorturl/edit" method="POST">
-        <x-forms.text-input name="short_url" placeholder="{{ __('account.new_url') }}"/>
+    <x-form.form action="/shorturl/edit" method="POST">
+        <x-form.text-input name="short_url" placeholder="{{ __('account.new_url') }}" type=" " value=""/>
 
-        <x-utils.submit-button/>
-    </x-forms.form>
+        <x-form.submit-button value="Upload"/>
+    </x-form.form>
 
     <div class="">
         <h2 class="text-2xl">QR code</h2>
@@ -48,6 +48,6 @@
 
     <h1 class="text-3xl">{{ __('account.favorites') }}</h1>
 
-    <x-list-component :advertisements="$favoriteAds"/>
+    <x-utils.list-component :advertisements="$favoriteAds"/>
 
 @endsection

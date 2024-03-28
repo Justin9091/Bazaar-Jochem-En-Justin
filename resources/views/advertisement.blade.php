@@ -32,7 +32,7 @@
                 </x-forms.form>
             </div>
         </div>
-    @endif
+    @else
 
     <div class="w-full flex gap-3">
         <x-bids :advertisement="$ad"/>
@@ -43,6 +43,7 @@
         </div>
     </div>
 
+    @endif
     <div class="container bg-gray-800 p-3 rounded-lg">
         <h2 class="text-2xl text-center font-bold">{{__('advertisement.related')}}</h2>
 

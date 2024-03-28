@@ -43,7 +43,7 @@ Route::post('/login', [LoginController::class, 'login'])->name('login.store');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/advertisement/{id}', [AdvertisementController::class, 'show'])->name('advertisement');
-Route::get('/advertisement/{id}/rentitem', [RentController::class, 'rentitem'])->name('advertisement.rent');
+Route::post('/advertisement/{id}/rentitem', [RentController::class, 'rentitem'])->name('advertisement.rent');
 
 
 Route::get('/seller/{userId}', [SellerController::class, 'show'])->name('sellerprofile');

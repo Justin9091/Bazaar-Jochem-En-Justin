@@ -6,38 +6,38 @@
     <div class="flex justify-center">
         <div class="bg-white dark:bg-gray-800 p-3 rounded-lg w-1/2">
             <h1 class="text-3xl font-bold text-center pb-3">{{__("registration.register")}}</h1>
-            <x-form action="{{route('register.store')}}" method="post">
+            <x-form.form action="{{route('register.store')}}" method="post">
 
                 <div class="flex">
                     <div class="w-full">
                         <p class="px-2">{{ __('registration.firstname') }}</p>
-                        <x-text-input placeholder="{{ __('registration.firstname') }}" type="text" name="first-name"/>
+                        <x-form.text-input placeholder="{{ __('registration.firstname') }}" type="text" name="first-name" value=""/>
                     </div>
 
                     <div class="w-full">
                         <p class="px-2">{{ __('registration.infix') }}</p>
-                        <x-text-input placeholder="{{ __('registration.infix') }}" type="text" name="infix"/>
+                        <x-form.text-input placeholder="{{ __('registration.infix') }}" type="text" name="infix" value=""/>
                     </div>
                     <div class="w-full">
                         <p class="px-2">{{ __('registration.lastname') }}</p>
-                        <x-text-input placeholder="{{ __('registration.lastname') }}" type="text" name="last-name"/>
+                        <x-form.text-input placeholder="{{ __('registration.lastname') }}" type="text" name="last-name" value=""/>
                     </div>
                 </div>
 
                 <div class="">
                     <p class="px-2">{{ __('registration.email')  }}</p>
-                    <x-text-input placeholder="{{ __('registration.email') }}" type="email" name="email"/>
+                    <x-form.text-input placeholder="{{ __('registration.email') }}" type="email" name="email" value=""/>
                 </div>
 
                 <div class="">
                     <p class="px-2">{{ __('registration.password')  }}</p>
-                    <x-text-input placeholder="{{ __('registration.password') }}" type="password" name="password"/>
+                    <x-form.text-input placeholder="{{ __('registration.password') }}" type="password" name="password" value=""/>
                 </div>
 
                 <div class="">
                     <p class="px-2">{{ __('registration.confirm_password')  }}</p>
-                    <x-text-input placeholder="{{ __('registration.confirm_password') }}" type="password"
-                                  name="password_confirmation"/>
+                    <x-form.text-input placeholder="{{ __('registration.confirm_password') }}" type="password"
+                                  name="password_confirmation" value=""/>
                 </div>
 
                 <div class="">
@@ -58,9 +58,9 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <x-submit-button value="{{ __('registration.register') }}"/>
+                    <x-form.submit-button value="{{ __('registration.register') }}"/>
                 </div>
-            </x-form>
+            </x-form.form>
         </div>
     </div>
 
