@@ -31,8 +31,10 @@ class RegisterControllerTest extends TestCase
             'first-name' => 'John',
             'infix' => 'van',
             'last-name' => 'Doe',
-            'password' => 'Password123',
+            'password' => 'Password123!',
+            'password_confirmation' => 'Password123!',
             'place-ads' => "on",
+            'account-type' => 'individual',
         ];
 
         // Simulate a POST request to store the user registration
