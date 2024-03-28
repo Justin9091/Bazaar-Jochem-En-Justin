@@ -32,7 +32,7 @@ class AdvertisementController extends Controller
         $rentAdvertisement->image = $req->file('image')->hashName();
         $rentAdvertisement->save();
 
-        return view('update');
+        return redirect()->route('sellerprofile');
     }
 
     private function updateDamage(RentAdvertisement $ad)
