@@ -9,4 +9,5 @@ return [
     'go_to_page' => 'Click here to go to your page',
     'favorites' => 'Favorites',
     'qr' => 'QR Code',
+    'own_page' => 'Landing page',
 ];
