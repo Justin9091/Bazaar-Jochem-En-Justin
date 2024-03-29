@@ -10,4 +10,5 @@ return [
     'favorites' => 'Favorites',
     'qr' => 'QR Code',
     'own_page' => 'Landing page',
+    'landing_editor' => 'Landing page editor',
 ];

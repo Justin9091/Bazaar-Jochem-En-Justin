@@ -11,6 +11,10 @@
             <x-utils.button>{{ __('account.own_page') }}</x-utils.button>
         </a>
 
+        <a href="{{ route('landing.editor') }}">
+            <x-utils.button :type="\App\enum\ButtonType::GREEN">{{ __('account.landing_editor') }}</x-utils.button>
+        </a>
+
         @if(Auth::user()->hasRole("business"))
 
             <h3 class="text-xl font-bold">Look and feel</h3>
