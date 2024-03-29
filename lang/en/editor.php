@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'title' => 'Editor',
     'add_component_title' => 'Add Component',
     'select_type' => 'Select Type',
     'text_label' => 'Text:',

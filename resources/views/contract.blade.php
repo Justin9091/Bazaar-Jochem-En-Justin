@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('page-title', __('contract.title'))
+
 @section("main-content")
 
     <div class="bg-gray-800 rounded-lg flex flex-col items-center justify-center p-5">

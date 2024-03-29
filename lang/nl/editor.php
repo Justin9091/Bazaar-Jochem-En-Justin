@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'title' => 'Editor',
     'add_component_title' => 'Component Toevoegen',
     'select_type' => 'Selecteer Type',
     'text_label' => 'Tekst:',

@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('page-title', __('agenda.title'))
+
 @section("main-content")
     <div>
         <link rel="dns-prefetch" href="//unpkg.com"/>

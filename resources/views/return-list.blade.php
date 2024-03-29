@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('page-title', __('return.title'))
+
 @section("main-content")
 
     <div class="container text-white bg-gray-800 p-3 rounded-lg">

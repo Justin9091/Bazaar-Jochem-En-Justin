@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('page-title', __('editor.title'))
+
 @section('main-content')
     <div class="container">
 

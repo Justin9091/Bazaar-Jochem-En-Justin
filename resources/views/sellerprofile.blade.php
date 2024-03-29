@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('page-title', $user->name)
+
 @section("main-content")
     <div class="container bg-gray-800 p-3 rounded-lg">
         @foreach($components as $component)
