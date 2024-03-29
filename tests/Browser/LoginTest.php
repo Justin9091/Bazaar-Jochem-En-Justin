@@ -25,6 +25,7 @@ class LoginTest extends DuskTestCase
                     ->assertSee('Login')
                     ->type('email', $user->email)
                     ->type('password', 'password')
+                    ->screenshot('login/filled_form')
                     ->press('Login');
 
             $browser->assertPathIs('/');
@@ -39,7 +40,8 @@ class LoginTest extends DuskTestCase
                     ->assertSee('Login')
                     ->type('email', '')
                     ->type('password', '')
-                    ->press('Login');
+                    ->press('Login')
+                    ->screenshot('login/empty_form');
 
             $browser->assertSee('The provided credentials do not match our records.');
         });
