@@ -10,4 +10,5 @@ return [
     'favorites' => 'Favorites',
     'qr' => 'QR Code',
     'own_page' => 'Landing page',
+    'contract' => 'Contract page',
 ];

@@ -7,4 +7,5 @@
         <input type="file" id="file" name="file" class="bg-gray-700 py-2 px-4 rounded focus:outline-none focus:bg-white focus:border-gray-800 mb-4">
         <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">@lang('csv.upload')</button>
     </form>
+    <x-utils.backbutton></x-utils.backbutton>
 </div>

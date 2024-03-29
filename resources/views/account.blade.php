@@ -8,7 +8,11 @@
         <h1 class="text-4xl text-center font-bold">{{ Auth::user()->name }}</h1>
 
         <a href="{{ route('sellerprofile', ['userId' => Auth::getUser()->id]) }}">
-            <x-utils.button>{{ __('account.own_page') }}</x-utils.button>
+            <x-utils.button :type="\App\enum\ButtonType::GREEN">{{ __('account.own_page') }}</x-utils.button>
+        </a>
+
+        <a href="{{ route('contract.index', ['userid' => Auth::getUser()->id]) }}">
+            <x-utils.button :type="\App\enum\ButtonType::GREEN">{{ __('account.contract') }}</x-utils.button>
         </a>
 
         @if(Auth::user()->hasRole("business"))
