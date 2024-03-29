@@ -41,7 +41,7 @@ class ShortUrlControllerTest extends TestCase
         ]);
 
         // Assert that the redirect URL is 'http://localhost/account'
-        $this->assertEquals('http://localhost/account', $response->getTargetUrl());
+        $this->assertEquals(env('APP_URL').'account', $response->getTargetUrl());
     }
 
     public function testUrlMethodRedirectsToSellerAccount()
@@ -58,7 +58,7 @@ class ShortUrlControllerTest extends TestCase
         $this->assertInstanceOf(RedirectResponse::class, $response);
 
         // Assert that the redirect URL is 'http://localhost/seller/1'
-        $this->assertEquals('http://localhost/seller/1', $response->getTargetUrl());
+        $this->assertEquals(env('APP_URL').'seller/1', $response->getTargetUrl());
     }
 
     public function testUrlMethodRedirectsToHomeForInvalidShortUrl()
@@ -72,6 +72,6 @@ class ShortUrlControllerTest extends TestCase
         $this->assertInstanceOf(RedirectResponse::class, $response);
 
         // Assert that the redirect URL is 'http://localhost'
-        $this->assertEquals('http://localhost', $response->getTargetUrl());
+        $this->assertEquals(env('APP_URL'), $response->getTargetUrl().'/');
     }
 }
