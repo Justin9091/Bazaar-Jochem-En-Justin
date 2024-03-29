@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('page-title', __('editor.title'))
+
 @section('main-content')
     <div class="container">
 
@@ -98,6 +100,8 @@
                                value="{{@__('editor.submit_button')}}">
                     </div>
                 </form>
+
+                <x-utils.back-button />
             </div>
         </div>
     </div>

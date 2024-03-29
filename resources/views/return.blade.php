@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('page-title', __('return.title'))
+
 @section("main-content")
     <div class="container bg-gray-800 p-3 rounded-lg text-white">
         <h2 class="text-2xl text-center font-bold">{{__('return.title')}}</h2>

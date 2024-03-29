@@ -11,4 +11,5 @@ return [
     'qr' => 'QR Code',
     'own_page' => 'Landing page',
     'contract' => 'Contract page',
+    'landing_editor' => 'Landing page editor',
 ];

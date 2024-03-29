@@ -31,7 +31,6 @@
 
             @if(auth()->check())
                 <li><a href="/logout">@lang('site.logout')</a></li>
-                <i class="gg-inbox"></i>
                 <li><a href="/account">@lang('site.account')</a></li>
             @else
                 <li><a href="/login">@lang('site.login')</a></li>
