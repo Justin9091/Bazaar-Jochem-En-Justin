@@ -26,7 +26,8 @@ class RegisterTest extends DuskTestCase
                 ->type('@last', "Doe")
                 ->type('@email', $user->email)
                 ->type('@password', 'Password123!')
-                ->type('@password-confirmation', 'Password123!');
+                ->type('@password-confirmation', 'Password123!')
+                ->screenshot('register/filled_form');
 
             $browser->click('@submit-button')
                 ->waitForRoute('home');
@@ -54,6 +55,7 @@ class RegisterTest extends DuskTestCase
                 ->type('@password-confirmation', '');
 
             $browser->click('@submit-button')
+                ->screenshot('register/empty_form')
                 ->waitForText('The first-name field is required.')
                 ->waitForText('The last-name field is required.')
                 ->waitForText('The email field is required.')

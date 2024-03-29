@@ -21,23 +21,24 @@ class RetourTest extends DuskTestCase
      */
     public function test_return_flow(): void
     {
-        $user = User::factory()->create();
 
-        $startRent = now()->subDays(3);
-        $endRent = now()->subDay();
+        $this->browse(function (Browser $browser) {
+            $user = User::factory()->create();
 
-        $ad = Advertisement::factory()->create([
-            'user_id' => $user->id,
-        ]);
+            $startRent = now()->subDays(3);
+            $endRent = now()->subDay();
 
-        $rent = RentAdvertisement::create([
-            'advertisement_id' => $ad->id,
-            'user_id' => $user->id,
-            'from_date' => $startRent,
-            'to_date' => $endRent,
-        ]);
+            $ad = Advertisement::factory()->create([
+                'user_id' => $user->id,
+            ]);
 
-        $this->browse(function (Browser $browser) use ($user, $ad, $rent) {
+            $rent = RentAdvertisement::create([
+                'advertisement_id' => $ad->id,
+                'user_id' => $user->id,
+                'from_date' => $startRent,
+                'to_date' => $endRent,
+            ]);
+
             $expectedDamage = 98;
             $fakeImage = UploadedFile::fake()->image('image.jpg');
             $submitButton = __('sellersprofile.return_item_list');
@@ -51,6 +52,7 @@ class RetourTest extends DuskTestCase
                 ->screenshot("return/return_form")
                 ->press('Register return')
                 ->waitFor('h2')
+                ->screenshot("return/return_form_result")
                 ->select('advertisement', $ad->id)
                 ->press($submitButton)
                 ->assertSee("Damage: " . $expectedDamage)

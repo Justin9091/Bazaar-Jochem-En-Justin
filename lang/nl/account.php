@@ -8,4 +8,5 @@ return [
     'new_url' => 'Nieuwe URL',
     'go_to_page' => 'Klik hier om naar uw pagina te gaan',
     'favorites' => 'Favorieten',
+    'qr' => 'QR Code',
 ];

@@ -40,7 +40,7 @@ class RetourController extends Controller
 
     function storeReturnedItem(Request $req)
     {
-        $rentAdvertisement = RentAdvertisement::find($req->advertisementId)->orderBy('to_date', 'desc')->first();
+        $rentAdvertisement = RentAdvertisement::where('advertisement_id', $req->advertisementId)->orderBy('to_date', 'desc')->first();
         $this->updateDamage($rentAdvertisement);
 
         $req->file('image')->store('public/images/returnedItems');

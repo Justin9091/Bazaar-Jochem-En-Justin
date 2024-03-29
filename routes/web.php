@@ -103,4 +103,4 @@ Route::post('/search', [SearchController::class, 'search'])->name('search');
 Route::post('/clear-search', [SearchController::class, 'clearSearch'])->name('clear-search-term');
 
 // Deze moet onderaan staan anders denkt Laravel dat elke route deze is
-Route::get('/{url}', [ShortUrlController::class, 'url']);
+Route::get('/{url}', [ShortUrlController::class, 'url'])->name('short-url');
