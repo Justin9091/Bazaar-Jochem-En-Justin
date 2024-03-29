@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
 
-class LandingPageCreatorControllerTest extends TestCase
+class LandingPageCreatorTest extends TestCase
 {
     use RefreshDatabase;
 
