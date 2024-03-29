@@ -3,6 +3,7 @@
 namespace App\Models\advertisement;
 
 use App\Models\Bid;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Review;
@@ -32,6 +33,11 @@ class Advertisement extends Model
     public function relatedAds() : BelongsToMany
     {
         return $this->belongsToMany(Advertisement::class, 'related_ads', 'advertisement_id', 'related_ad_id');
+    }
+
+    public function favorites()
+    {
+        return $this->belongsToMany(User::class, 'user_favorites', 'advertisement_id', 'user_id');
     }
 
     public function getReviews($advertisementId, $userId)

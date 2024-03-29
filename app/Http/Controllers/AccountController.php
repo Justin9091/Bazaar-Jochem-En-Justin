@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\advertisement\Advertisement;
 use App\Models\ShortUrl;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -13,7 +15,10 @@ class AccountController extends Controller
     public function index()
     {
         $user = Auth::getUser();
-        $favorites = $user->favorites()->get();
+        // get favorite ads via pivot table: user_favorites
+        $favorites = User::whereHas('favorites', function ($query) {
+            $query->where('user_id', Auth::id());
+        })->get();
 
         foreach ($favorites as $favorite) {
             $favorite->ad = $favorite->advertisement;

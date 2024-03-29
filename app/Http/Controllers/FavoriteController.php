@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
+use App\Models\UserFavorite;
 use Illuminate\Http\Request;
 
 class FavoriteController extends Controller
@@ -11,7 +12,10 @@ class FavoriteController extends Controller
     {
         $user = $request->user();
 
-        if ($user->favorites()->where('advertisement_id', $advertisement)->exists()) {
+        if (UserFavorite::all()
+                ->where('user_id', auth()->id())
+                ->where('advertisement_id', $advertisement)
+                ->count() > 0) {
             $user->favorites()->where('advertisement_id', $advertisement)->delete();
         } else {
             $user->favorites()->create(['advertisement_id' => $advertisement]);

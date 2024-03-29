@@ -2,7 +2,7 @@
 {{--&#9733; --> Full star --}}
 
 <div class="">
-    <a href="/favorite/{{$ad["id"]}}">
+    <a dusk="favoriteStar" href="/favorite/{{$ad["id"]}}">
         @if($isFavorited)
             <span class="text-yellow-500">&#9733;</span>
         @else
