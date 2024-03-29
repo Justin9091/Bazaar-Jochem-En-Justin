@@ -6,24 +6,26 @@
         <div class="flex flex-col gap-2">
             @foreach($components as $component)
 
+                <div class="component">
                 <div class="bg-white dark:bg-gray-800 rounded-lg p-3 flex justify-between items-center shadow-lg">
 
                     <div class="flex flex-col gap-2">
-                        <a class="p-1 bg-blue-500 text-white text-bold text-center rounded-lg"
+                        <a dusk="move-up" class="p-1 bg-blue-500 text-white text-bold text-center rounded-lg"
                            href="/landing/editor/up/{{$component->id}}">{{@__('editor.move_up')}}</a>
-                        <a class="p-1 bg-red-500 text-white text-bold text-center rounded-lg"
+                        <a dusk="delete" class="p-1 bg-red-500 text-white text-bold text-center rounded-lg"
                            href="/landing/editor/remove/{{$component->id}}">{{@__('editor.delete')}}</a>
-                        <a class="p-1 bg-blue-500 text-white text-bold text-center rounded-lg"
+                        <a dusk="move-down" class="p-1 bg-blue-500 text-white text-bold text-center rounded-lg"
                            href="/landing/editor/down/{{$component->id}}">{{@__('editor.move_down')}}</a>
                     </div>
 
-                    <div class="">
+                    <div>
                         @if($component->type == 'text-component')
                             <x-Components.text-component :component="$component"/>
                         @elseif($component->type == 'image-component')
                             <x-Components.image-component :component="$component"/>
                         @endif
                     </div>
+                </div>
                 </div>
             @endforeach
 
@@ -37,14 +39,14 @@
                     <select name="type" onchange="show()" id="select" class="text-slate-950 w-full p-2 rounded-lg">
                         <option value="none" selected>{{@__('editor.select_type')}}</option>
                         @foreach(\App\enum\ComponentType::cases() as $type)
-                            <option class="text-slate-950" value="{{$type}}">{{$type->getLabel()}}</option>
+                            <option dusk="{{$type->getLabel()}}" class="text-slate-950" value="{{$type}}">{{$type->getLabel()}}</option>
                         @endforeach
                     </select>
 
                     <div id="text-component" class="hidden">
                         <div class="">
                             <p>{{@__('editor.text')}}</p>
-                            <input name="text" type="text" class="text-slate-950 w-full p-2 rounded-lg">
+                            <input dusk="text-input" name="text" type="text" class="text-slate-950 w-full p-2 rounded-lg">
                         </div>
 
                         <div class="">
@@ -71,7 +73,7 @@
                     @enderror
 
                     <div class="flex justify-center p-4">
-                        <input class="p-3 bg-red-500 text-white text-bold text-center rounded-lg" type="submit"
+                        <input dusk="add-component" class="p-3 bg-red-500 text-white text-bold text-center rounded-lg" type="submit"
                                value="{{@__('editor.submit_button')}}">
                     </div>
                 </form>
