@@ -4,15 +4,18 @@
         <x-Form.form action="{{ 'search' }}" method="POST">
 
             <x-Form.text-input type="text" placeholder="{{ __('components.search_placeholder') }}" name="search-term"
-                          class="p-1 m-1 rounded-lg border border-black" value="{{ htmlspecialchars(session()->get('search')) }}"  />
+                               class="p-1 m-1 rounded-lg border border-black"
+                               value="{{ htmlspecialchars(session()->get('search')) }}"/>
 
-            <x-submit-button value="{{ __('components.search_button') }}" />
+            <x-submit-button value="{{ __('components.search_button') }}"/>
         </x-Form.form>
 
         @if(session()->has('search'))
-            <x-Form.form action="/clear-search" method="POST">
-                <x-form.submit-button value="{{ __('components.clear_search_button') }}" />
-            </x-Form.form>
+            <div id="clear-search">
+                <x-Form.form action="/clear-search" method="POST">
+                    <x-form.submit-button value="{{ __('components.clear_search_button') }}"/>
+                </x-Form.form>
+            </div>
         @endif
     </header>
 

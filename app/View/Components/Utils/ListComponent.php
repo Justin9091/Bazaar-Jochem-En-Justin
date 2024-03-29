@@ -3,6 +3,9 @@
 namespace App\View\Components\Utils;
 
 use App\Models\advertisement\Advertisement;
+use App\Models\User;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
 
 class ListComponent extends Component
@@ -15,6 +18,7 @@ class ListComponent extends Component
      */
     public function __construct(
         public $advertisements,
+        public $favoriteList = false,
     )
     {
     }
@@ -48,7 +52,19 @@ class ListComponent extends Component
                 ->cursorPaginate(10);
 
         } else {
-            $this->advertisements = Advertisement::query()->orderBy('id', 'desc')->paginate(10);
+            $this->advertisements = Advertisement::query()
+                ->orderBy('id', 'desc')
+                ->paginate(10);
+        }
+
+        if ($this->favoriteList) {
+            $this->advertisements = Advertisement::query()
+                ->whereHas('favorites', function ($query) {
+                    $query->where('user_id', Auth::id());
+                })
+                ->where('title', 'like', '%' . $searchTerm . '%')
+                ->orderBy('id', 'desc')
+                ->paginate(10);
         }
 
         return view('components.utils.list-component');

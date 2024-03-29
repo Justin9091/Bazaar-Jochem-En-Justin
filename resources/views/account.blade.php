@@ -50,6 +50,6 @@
 
         <h1 class="text-xl text-center font-bold">{{ __('account.favorites') }}</h1>
 
-        <x-utils.list-component :advertisements="$favoriteAds"/>
+        <x-utils.list-component :favoriteList="true" :advertisements="$favoriteAds"/>
     </div>
 @endsection
