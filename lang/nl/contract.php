@@ -1,6 +1,5 @@
 <?php
 
 return [
-    'contractpage' => 'Contractpagina',
-    'contracts' => 'Contracten',
+    'title' => 'Contract',
 ];
