@@ -62,6 +62,7 @@ class ListComponent extends Component
                 ->whereHas('favorites', function ($query) {
                     $query->where('user_id', Auth::id());
                 })
+                ->where('title', 'like', '%' . $searchTerm . '%')
                 ->orderBy('id', 'desc')
                 ->paginate(10);
         }
