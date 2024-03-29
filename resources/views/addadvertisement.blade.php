@@ -27,7 +27,7 @@
 
             <div>
                 <label for="expiration">@lang('ad.expiration_label'):</label><br>
-                <input type="date" id="expiration" name="expiration" class="w-full p-1 rounded-lg text-black">
+                <input dusk="expiration" type="date" id="expiration" name="expiration" class="w-full p-1 rounded-lg text-black">
             </div>
 
             {{--            Show all errors send with the: withError function--}}

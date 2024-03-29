@@ -27,7 +27,6 @@ class ReviewTest extends DuskTestCase
 
             $browser->loginAs($loginuser)
                 ->visit('/seller/' . $pageuser->id)
-                ->screenshot("/review/kip")
                 ->waitForLocation('/seller/' . $pageuser->id)
                 ->assertPathIs("/seller/1")
                 ->type('title', $fakeTitle)
