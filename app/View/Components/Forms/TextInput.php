@@ -16,6 +16,7 @@ class TextInput extends Component
         public $name,
         public $type = 'text',
         public $value = "",
+        public $dusk = "",
     )
     {
         //

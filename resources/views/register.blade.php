@@ -11,37 +11,37 @@
                 <div class="flex">
                     <div class="w-full">
                         <p class="px-2">{{ __('registration.firstname') }}</p>
-                        <x-form.text-input placeholder="{{ __('registration.firstname') }}" type="text" name="first-name" value=""/>
+                        <x-form.text-input placeholder="{{ __('registration.firstname') }}" type="text" name="first-name" value="" dusk="first" />
                     </div>
 
                     <div class="w-full">
                         <p class="px-2">{{ __('registration.infix') }}</p>
-                        <x-form.text-input placeholder="{{ __('registration.infix') }}" type="text" name="infix" value=""/>
+                        <x-form.text-input placeholder="{{ __('registration.infix') }}" type="text" name="infix" value="" dusk="infix" />
                     </div>
                     <div class="w-full">
                         <p class="px-2">{{ __('registration.lastname') }}</p>
-                        <x-form.text-input placeholder="{{ __('registration.lastname') }}" type="text" name="last-name" value=""/>
+                        <x-form.text-input placeholder="{{ __('registration.lastname') }}" type="text" name="last-name" value="" dusk="last" />
                     </div>
                 </div>
 
                 <div class="">
                     <p class="px-2">{{ __('registration.email')  }}</p>
-                    <x-form.text-input placeholder="{{ __('registration.email') }}" type="email" name="email" value=""/>
+                    <x-form.text-input placeholder="{{ __('registration.email') }}" type="email" name="email" value="" dusk="email" />
                 </div>
 
                 <div class="">
                     <p class="px-2">{{ __('registration.password')  }}</p>
-                    <x-form.text-input placeholder="{{ __('registration.password') }}" type="password" name="password" value=""/>
+                    <x-form.text-input placeholder="{{ __('registration.password') }}" type="password" name="password" value="" dusk="password" />
                 </div>
 
                 <div class="">
                     <p class="px-2">{{ __('registration.confirm_password')  }}</p>
                     <x-form.text-input placeholder="{{ __('registration.confirm_password') }}" type="password"
-                                  name="password_confirmation" value=""/>
+                                  name="password_confirmation" value="" dusk="password-confirmation" />
                 </div>
 
                 <div class="">
-                    <input id="advertisement-placement" type="checkbox" name="place-ads">
+                    <input id="advertisement-placement" type="checkbox" name="place-ads" dusk="place-ads">
                     <label for="advertisement-placement">{{ __('registration.place_ads') }}</label>
                 </div>
 
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <x-form.submit-button value="{{ __('registration.register') }}"/>
+                    <x-form.submit-button value="{{ __('registration.register') }}" />
                 </div>
             </x-form.form>
         </div>

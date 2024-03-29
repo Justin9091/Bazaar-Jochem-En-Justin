@@ -13,6 +13,7 @@ class SubmitButton extends Component
      */
     public function __construct(
         public $value = "Submit",
+        private $dusk = "submit-button",
     )
     {
     }
@@ -24,7 +25,9 @@ class SubmitButton extends Component
      */
     public function render()
     {
-        return view('components.form.submit-button')
-            ->with('value', $this->value);
+        return view('components.form.submit-button')->with([
+            'dusk' => $this->dusk ?? 'submit-button',
+            'value' => $this->value,
+        ]);
     }
 }
