@@ -3,14 +3,15 @@
 namespace Tests\Browser;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTruncation;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
 class ExampleTest extends DuskTestCase
 {
-    /**
-     * A basic browser test example.
-     */
+    use DatabaseMigrations;
+    use DatabaseTruncation;
+
     public function testBasicExample(): void
     {
         $this->browse(function (Browser $browser) {

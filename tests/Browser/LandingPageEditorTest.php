@@ -6,15 +6,16 @@ use App\enum\ComponentType;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTruncation;
 use Illuminate\Http\UploadedFile;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
 class LandingPageEditorTest extends DuskTestCase
 {
-    /**
-     * A Dusk test example.
-     */
+    use DatabaseMigrations;
+    use DatabaseTruncation;
+
     public function test_add_text_component(): void
     {
         $user = User::factory()->create();

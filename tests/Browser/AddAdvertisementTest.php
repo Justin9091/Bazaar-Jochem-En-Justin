@@ -5,6 +5,7 @@ namespace Tests\Browser;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTruncation;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 use Faker\Factory as Faker;
@@ -12,6 +13,8 @@ use Faker\Factory as Faker;
 class AddAdvertisementTest extends DuskTestCase
 {
     use DatabaseMigrations;
+    use DatabaseTruncation;
+
 
     public function testAddAdvertisement(): void
     {

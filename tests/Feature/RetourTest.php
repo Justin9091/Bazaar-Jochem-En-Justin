@@ -73,6 +73,8 @@ class RetourControllerTest extends TestCase
 
     public function testStoreReturnedItemMethod()
     {
+        $this->refreshDatabase();
+
         // Create a user
         $user = User::factory()->create();
 
@@ -84,7 +86,7 @@ class RetourControllerTest extends TestCase
             'advertisement_id' => $advertisement->id,
             'from_date'=> '2024-03-03',
             'to_date'=> '2024-12-12',
-            'damage'=> '1',
+            'damage'=> '10',
         ]);
 
         // Authenticate as the user
@@ -96,7 +98,7 @@ class RetourControllerTest extends TestCase
 
         // Simulate an HTTP POST request to the storeReturnedItem route
         $response = $this->post(route('return.store'), [
-            'advertisementId' => $rent->id,
+            'advertisementId' => $advertisement->id,
             'image' => $file
         ]);
 
